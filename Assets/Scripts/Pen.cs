@@ -13,10 +13,11 @@ public class Pen : MonoBehaviour
     public bool isForWriting;
     public bool isMarker;
     public bool isForHighlighting;
+    public Material mat;
     
     void Start()
     {
-       
+        mat = GetComponentInChildren<MeshRenderer>().material;
     }
 
     void Update()
