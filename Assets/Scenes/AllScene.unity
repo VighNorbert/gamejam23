@@ -220,7 +220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356521, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_text
@@ -629,7 +629,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356521, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_text
@@ -1898,10 +1898,12 @@ MonoBehaviour:
   - {fileID: 1283271429}
   - {fileID: 140613516}
   - {fileID: 54568251}
+  donation: {fileID: 0}
   currentSideTask: -1
   nextSideTaskIn: 0
   currentRandomEvent: -1
   nextRandomEventIn: 0
+  nextDonationIn: -1
 --- !u!114 &1128019030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2477,7 +2479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356521, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_text
@@ -3121,7 +3123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356521, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_text
@@ -3289,7 +3291,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356521, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_text
@@ -3446,7 +3448,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356521, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_text
@@ -3830,6 +3832,7 @@ MonoBehaviour:
   blackOut: {fileID: 64991878}
   light: {fileID: 705507993}
   isSetOff: 0
+  setOff: 0
   fadeDuration: 2
 --- !u!114 &1786374826 stripped
 MonoBehaviour:

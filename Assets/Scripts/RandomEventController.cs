@@ -46,8 +46,6 @@ public class RandomEventController : MonoBehaviour
             else if (ChatController.instance.currentRandomEvent == 1)
             {
                 blackOut.SetActive(true);
-                Debug.Log("PICA" + setOff + " " + ChatController.instance.currentRandomEvent);
-                
                 StartCoroutine(FadeInOut());
 
             }
