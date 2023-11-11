@@ -11,6 +11,10 @@ public class ViewersCount : MonoBehaviour
     public static void AddViewers(int addCount)
     {
         viewersCount += addCount;
+        if (viewersCount < 0)
+        {
+            viewersCount = 0;
+        }
     }
 
     private void Update()
