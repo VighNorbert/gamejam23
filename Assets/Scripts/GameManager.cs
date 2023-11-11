@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public Pen nextPen;
 
     public Pen selectedPen;
-    public bool isPenAvailable = true;
+    public bool isPenAvailable = false;
 
     public Hand hand;
     public Vector3 originalHandPosition;
@@ -28,6 +28,10 @@ public class GameManager : MonoBehaviour
     public Animator handAnimator;
 
     public ViewersCount vc;
+
+    public int paperIndex = 0;
+
+    private Paper _previousPaper;
     
     void Start()
     {
@@ -63,12 +67,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void SelectNextPaper()
+    public void SelectNextPaper()
     {
-        currentPaperIndex = Random.Range(0, availablePapers.Length);
+        if (currentPaper == null)
+        {
+            currentPaperIndex = paperIndex % availablePapers.Length;
         
-        currentPaper = Instantiate(availablePapers[currentPaperIndex], new Vector3(0, 5.01f, -3.08f), Quaternion.identity);
-        currentPaper.gm = this;
+            currentPaper = Instantiate(availablePapers[currentPaperIndex], new Vector3(0, 5.01f, -3.08f), Quaternion.identity);
+            currentPaper.gm = this;
+            paperIndex++;
+        }
+        else
+        {
+            _previousPaper = currentPaper;
+            _previousPaper.transform.position = new Vector3(0, 5.03f, -3.08f);
+            
+            currentPaperIndex = paperIndex % availablePapers.Length;
+            currentPaper = Instantiate(availablePapers[currentPaperIndex], new Vector3(0, 5.01f, -3.08f),
+                Quaternion.identity);
+            currentPaper.gm = this;
+            paperIndex++;
+
+            StartCoroutine(PutPenDown());
+        }
     }
 
     void ChangePen(Pen pen)
@@ -80,7 +101,6 @@ public class GameManager : MonoBehaviour
     {
         if (hand.transform.position.Equals(new Vector3(0, 5, -3.47f)))
         {
-            Debug.Log("Setting first hand position");
             originalHandPosition = new Vector3(-0.872f, 5, -1.939f);
         }
         else
@@ -91,7 +111,6 @@ public class GameManager : MonoBehaviour
         isPenAvailable = false;
         
         selectedPen = pen;
-        Debug.Log("Selected pen: " + pen);
         StartCoroutine(PenSelector());
     }
     
@@ -116,6 +135,7 @@ public class GameManager : MonoBehaviour
     
     IEnumerator PenChanger(Pen pen)
     {
+        isPenAvailable = false;
         originalHandPosition = hand.transform.position;
         handAnimator.SetTrigger("SwitchPen");
         nextPen = pen;
@@ -137,8 +157,6 @@ public class GameManager : MonoBehaviour
 
     public void OnPenPutDown()
     {
-        isPenAvailable = false;
-            
         selectedPen.GetComponentInChildren<MeshRenderer>().enabled = true;
         hand.pen.SetActive(false);
         hand.marker.SetActive(false);
@@ -184,6 +202,7 @@ public class GameManager : MonoBehaviour
             if (Time.time - start >= total)
             {
                 hand.transform.position = originalHandPosition;
+                Debug.Log("Pen available");
                 isPenAvailable = true;
                 break;
             }
@@ -196,7 +215,6 @@ public class GameManager : MonoBehaviour
         Vector3 startPos = hand.transform.position;
         float total = writing ? Vector3.Distance(startPos, endPosition) * 5f : Vector3.Distance(startPos, endPosition) * .5f;
 
-        Debug.Log(total);
         float start = Time.time;
         while (true)
         {
@@ -205,9 +223,105 @@ public class GameManager : MonoBehaviour
             if (Time.time - start >= total)
             {
                 hand.transform.position = endPosition;
-                Debug.Log("Ending write");
                 if (writing) handAnimator.SetTrigger("EndWriting");
+                Debug.Log("Pen available");
                 isPenAvailable = true;
+                break;
+            }
+            yield return new WaitForSeconds(0.001f);
+        }
+    }
+
+    IEnumerator PutPenDown()
+    {
+        isPenAvailable = false;
+        originalHandPosition = hand.transform.position;
+        handAnimator.SetTrigger("PutDownPen");
+        Vector3 startPos = hand.transform.position;
+        float total = Vector3.Distance(startPos, selectedPen.transform.position) * .6f;
+        float start = Time.time;
+        while (true)
+        {
+            float t = (Time.time - start) / total;
+            hand.transform.position = Vector3.Lerp(startPos, selectedPen.transform.position, t);
+            if (Time.time - start >= total)
+            {
+                hand.transform.position = selectedPen.transform.position;
+                break;
+            }
+            yield return new WaitForSeconds(0.001f);
+        }
+    }
+
+    public void OnReadyToAnimateHandToPaper()
+    {
+        
+        selectedPen.GetComponentInChildren<MeshRenderer>().enabled = true;
+        hand.pen.SetActive(false);
+        hand.marker.SetActive(false);
+        hand.highlighter.SetActive(false);
+        selectedPen = null;
+        StartCoroutine(AnimateHandToPaper());
+    }
+    
+    IEnumerator AnimateHandToPaper()
+    {
+        Vector3 startPos = hand.transform.position;
+        Vector3 endPos = new Vector3(-0.85f, 4.5f, -3.5f);
+        float total = Vector3.Distance(startPos, endPos) * .6f;
+        float start = Time.time;
+        while (true)
+        {
+            float t = (Time.time - start) / total;
+            hand.transform.position = Vector3.Lerp(startPos, endPos, t);
+            if (Time.time - start >= total)
+            {
+                hand.transform.position = endPos;
+                StartCoroutine(AnimatePaperOut());
+                break;
+            }
+            yield return new WaitForSeconds(0.001f);
+        }
+    }
+
+    IEnumerator AnimatePaperOut()
+    {
+        Vector3 startPos = hand.transform.position;
+        Vector3 paperOffset = _previousPaper.transform.position - startPos;
+        Vector3 endPos = new Vector3(-0.85f, 5f, -6f);
+        float total = Vector3.Distance(startPos, endPos) * .8f;
+        float start = Time.time;
+        while (true)
+        {
+            float t = (Time.time - start) / total;
+            hand.transform.position = Vector3.Lerp(startPos, endPos, t);
+            _previousPaper.transform.position = Vector3.Lerp(startPos, endPos, t) + paperOffset;
+            if (Time.time - start >= total)
+            {
+                hand.transform.position = endPos;
+                Destroy(_previousPaper.gameObject);
+                _previousPaper = null;
+                StartCoroutine(ReturnHand());
+                break;
+            }
+            yield return new WaitForSeconds(0.001f);
+        }
+    }
+    
+    IEnumerator ReturnHand()
+    {
+        Vector3 startPos = hand.transform.position;
+        Vector3 endPos = new Vector3(0, 5, -3.47f);
+        float total = Vector3.Distance(startPos, endPos) * .8f;
+        float start = Time.time;
+        while (true)
+        {
+            float t = (Time.time - start) / total;
+            hand.transform.position = Vector3.Lerp(startPos, endPos, t);
+            if (Time.time - start >= total)
+            {
+                hand.transform.position = endPos;
+                SelectPen(defaultPen);
                 break;
             }
             yield return new WaitForSeconds(0.001f);
