@@ -51,17 +51,17 @@ public class ChatController : MonoBehaviour
     private List<(List<string> messages, int weight)> sideTaskMessages = new List<(List<string>, int)>
     {
         (new List<string> {"Aren't you thirsty?"}, 1),
-        (new List<string> {"Can you turn the volume up?"}, 8),
-        (new List<string> {"Can you turn the volume down?"}, 8),
-        (new List<string> {"This song sucks, give us another one"}, 4),
+        (new List<string> {"Can you turn the volume up?"}, 1),
+        (new List<string> {"Can you turn the volume down?"}, 1),
+        (new List<string> {"This song sucks, give us another one"}, 1),
         (new List<string> {"Can you play that last song again?"}, 1),
         (new List<string> {"Can you start the song from the beginning?"}, 1),
         (new List<string> {"That flower looks sad, give it some water!"}, 1),
         (new List<string> {"Notice me senpai!"}, 1),
-        (new List<string> {"Pet the cat!"}, 3)
+        (new List<string> {"Pet the cat!"}, 1)
     };
 
-    private int totalWeights = 28;
+    private int totalWeights = 9;
 
     public static ChatController instance;
 
