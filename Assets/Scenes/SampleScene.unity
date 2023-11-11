@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -377,7 +377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356520, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356520, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -413,7 +413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356520, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 90
+      value: 83.9
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356520, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -433,7 +433,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356521, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_text
+      value: hello people how are yall doing yall doin good yes okay
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_fontSize
+      value: 5.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 5.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
@@ -882,7 +902,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356520, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356520, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -918,7 +938,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356520, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 30
+      value: 23.9
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356520, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -938,7 +958,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356521, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_text
+      value: hello people how are yall doing yall doin good yes okay
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_fontSize
+      value: 5.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 5.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
@@ -1354,7 +1394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356520, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356520, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1390,7 +1430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356520, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 75
+      value: 68.9
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356520, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1410,7 +1450,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356521, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_text
+      value: hello people how are yall doing yall doin good yes okay
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_fontSize
+      value: 5.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 5.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
@@ -1617,7 +1677,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356520, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356520, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1653,7 +1713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356520, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 60
+      value: 53.9
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356520, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1673,7 +1733,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356521, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_text
+      value: hello people how are yall doing yall doin good yes okay
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_fontSize
+      value: 5.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 5.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
@@ -1815,7 +1895,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356520, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356520, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1851,7 +1931,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356520, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 45
+      value: 38.9
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356520, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1871,7 +1951,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356521, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_text
+      value: hello people how are yall doing yall doin good yes okay
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_fontSize
+      value: 5.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 5.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
@@ -1932,7 +2032,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356520, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356520, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1968,7 +2068,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356520, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 15
+      value: 8.9
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356520, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1988,7 +2088,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356521, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_text
+      value: hello people how are yall doing yall doin good yes okay
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_fontSize
+      value: 5.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 5.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
