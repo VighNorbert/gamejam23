@@ -26,6 +26,8 @@ public class Paper : MonoBehaviour
     private Pen _colorRemoved = null;
 
     private bool lastWasBr = false;
+
+    private int combo = 1;
     
     void Start()
     {
@@ -150,6 +152,8 @@ public class Paper : MonoBehaviour
                 }
                 writtenText += nextChar;
                 writtenTextTMP.SetText(writtenText + " ");
+                combo += 1;
+                ViewersCount.AddViewers(combo * 10);
                 if (!lastWasBr)
                 {
                     gm.handAnimator.SetTrigger("Write");
@@ -167,6 +171,7 @@ public class Paper : MonoBehaviour
                     {
                         // bad character
                         Debug.Log("bad char");
+                        combo = 1;
                         break; // Exit the loop after the first match
                     }
                 }

@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     public Vector3 originalHandPosition;
 
     public Animator handAnimator;
+
+    public ViewersCount vc;
     
     void Start()
     {
