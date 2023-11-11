@@ -142,9 +142,9 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _Thickness: 0.002
+    - _Thickness: 0.0015
     - _WiggleScale: -1.12
-    - _WiggleStrenght: 0.006
+    - _WiggleStrenght: 0.003
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
