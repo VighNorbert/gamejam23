@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1118,10 +1118,12 @@ MonoBehaviour:
   - {fileID: 226526108}
   - {fileID: 638230733}
   - {fileID: 1243032560}
+  donation: {fileID: 0}
   currentSideTask: -1
   nextSideTaskIn: 0
   currentRandomEvent: -1
   nextRandomEventIn: 0
+  nextDonationIn: -1
 --- !u!114 &805058128
 MonoBehaviour:
   m_ObjectHideFlags: 0
