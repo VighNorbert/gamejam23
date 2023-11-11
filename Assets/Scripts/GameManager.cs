@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int views = 0;
+
+    public Paper[] availablePapers;
+    
+    public Paper currentPaper;
+    public int currentPaperIndex;
+    
+    public ChatController chatController;
+    
+    
+    
+    
     void Start()
+    {
+        SelectNextPaper();
+    }
+
+    void Update()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void SelectNextPaper()
     {
+        currentPaperIndex = Random.Range(0, availablePapers.Length);
+        
+        currentPaper = Instantiate(availablePapers[currentPaperIndex], new Vector3(0, 5.01f, -3.08f), Quaternion.identity);
         
     }
 }

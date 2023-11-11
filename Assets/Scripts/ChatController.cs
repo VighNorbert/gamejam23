@@ -27,7 +27,7 @@ public class ChatController : MonoBehaviour
                 Destroy(transform.GetChild(0).gameObject, 0f);
             }
             GameObject chatMessage = Instantiate(chatMessagePrefab, transform.position, Quaternion.identity);
-            chatMessage.transform.parent = transform;
+            chatMessage.transform.SetParent(transform);
 
             ViewersCount.AddViewers(20);
 
