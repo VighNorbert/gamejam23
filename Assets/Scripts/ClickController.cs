@@ -6,12 +6,22 @@ public class ClickController : MonoBehaviour
     private int currTask = 0;
     public GameObject light;
 
-    int spln = 0;
+    public int spln = 0;
     int nowpreTommyho = 0;
 
     public bool leftTrig = true;
+
+    public static ClickController instance;
+
+
+    private void Awake()
+    {
+        instance = this;
+    }
     void Update()
     {
+        //Debug.Log(ChatController.instance.currentRandomEvent + " T " + ChatController.instance.currentSideTask);
+
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -25,11 +35,11 @@ public class ClickController : MonoBehaviour
                     if (hit.collider.gameObject.name == "Lamp")
                     {
                         light.SetActive(!light.active);
-                        if (currTask == 10)
+                        if (ChatController.instance.currentRandomEvent == 0)
                         {
                             ViewersCount.AddViewers(Random.Range(5, 21) * spln);
                             DonationsCount.AddDonation(Random.Range(30, 51));
-
+                            ChatController.instance.currentRandomEvent = -1;
                             spln += 1;
                         }
                     }
@@ -37,8 +47,9 @@ public class ClickController : MonoBehaviour
                     {
                         //Animation
                         //Change cursor
-                        if (currTask == 6)
+                        if (ChatController.instance.currentSideTask == 6)
                         {
+                            ChatController.instance.currentSideTask = -1;
                             ViewersCount.AddViewers(Random.Range(5, 11) * spln);
                             DonationsCount.AddDonation(Random.Range(30, 51));
                             spln += 1;
@@ -48,9 +59,10 @@ public class ClickController : MonoBehaviour
                     {
                         //Change cursor
                         //Animation
-                        if (currTask == 0)
+                        if (ChatController.instance.currentSideTask == 0)
                         {
                             spln += 1;
+                            ChatController.instance.currentSideTask = -1;
                             ViewersCount.AddViewers(Random.Range(5, 11) * spln);
                             DonationsCount.AddDonation(Random.Range(30, 51));
                         }
@@ -59,9 +71,10 @@ public class ClickController : MonoBehaviour
                     {
                         //Change cursor
                         //Animation
-                        if (currTask == 9)
+                        if (ChatController.instance.currentRandomEvent == 1)
                         {
                             spln += 1;
+                            ChatController.instance.currentRandomEvent = -1;
                             ViewersCount.AddViewers(Random.Range(5, 11) * spln);
                             DonationsCount.AddDonation(Random.Range(30, 51));
 
@@ -80,16 +93,18 @@ public class ClickController : MonoBehaviour
                             spln += 1;
                             SoundManager.instance.ResetSong();
                         }
-                        if (currTask == 4)
+                        if (ChatController.instance.currentSideTask == 4)
                         {
                             spln += 1;
+                            ChatController.instance.currentSideTask = -1;
                             ViewersCount.AddViewers(Random.Range(5, 11) * spln);
                             DonationsCount.AddDonation(Random.Range(30, 51));
 
                         }
-                        if (currTask == 5)
+                        if (ChatController.instance.currentSideTask == 5)
                         {
                             spln += 1;
+                            ChatController.instance.currentSideTask = -1;
                             ViewersCount.AddViewers(Random.Range(5, 11) * spln);
                             DonationsCount.AddDonation(Random.Range(30, 51));
 
@@ -98,9 +113,10 @@ public class ClickController : MonoBehaviour
                     else if (hit.collider.gameObject.name == "Right")
                     {
                         SoundManager.instance.NextSong();
-                        if (currTask == 3)
+                        if (ChatController.instance.currentSideTask == 3)
                         {
                             spln += 1;
+                            ChatController.instance.currentSideTask = -1;
                             ViewersCount.AddViewers(Random.Range(5, 11) * spln);
                             DonationsCount.AddDonation(Random.Range(30, 51));
 
@@ -109,9 +125,10 @@ public class ClickController : MonoBehaviour
                     else if (hit.collider.gameObject.name == "Up")
                     {
                         SoundManager.instance.HigherVolume();
-                        if (currTask == 2)
+                        if (ChatController.instance.currentSideTask == 2)
                         {
                             spln += 1;
+                            ChatController.instance.currentSideTask = -1;
                             ViewersCount.AddViewers(Random.Range(5, 11) * spln);
                             DonationsCount.AddDonation(Random.Range(30, 51));
 
@@ -120,9 +137,10 @@ public class ClickController : MonoBehaviour
                     else if (hit.collider.gameObject.name == "Down")
                     {
                         SoundManager.instance.LowerVolume();
-                        if (currTask == 3)
+                        if (ChatController.instance.currentSideTask == 3)
                         {
                             spln += 1;
+                            ChatController.instance.currentSideTask = -1;
                             ViewersCount.AddViewers(Random.Range(5, 11) * spln);
                             DonationsCount.AddDonation(Random.Range(30, 51));
 

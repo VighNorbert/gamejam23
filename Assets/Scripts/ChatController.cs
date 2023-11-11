@@ -43,21 +43,28 @@ public class ChatController : MonoBehaviour
         "I just subscribed!",
     };
 
-    private List<(string message, int weight)> sideTaskMessages = new List<(string, int)>
+    private List<(List<string> messages, int weight)> sideTaskMessages = new List<(List<string>, int)>
     {
-        ("Aren't you thirsty?", 1),
-        ("Can you turn the volume up?", 1),
-        ("Can you turn the volume down?", 1),
-        ("This song sucks, give us another one", 4),
-        ("Can you play that last song again?", 1),
-        ("Can you start the song from the beginning?", 1),
-        ("That flower looks sad, give it some water!", 1),
-        ("Notice me senpai!", 5),
-        ("Pet the cat!", 3)
+        (new List<string> {"Aren't you thirsty?"}, 1),
+        (new List<string> {"Can you turn the volume up?"}, 1),
+        (new List<string> {"Can you turn the volume down?"}, 1),
+        (new List<string> {"This song sucks, give us another one"}, 4),
+        (new List<string> {"Can you play that last song again?"}, 1),
+        (new List<string> {"Can you start the song from the beginning?"}, 1),
+        (new List<string> {"That flower looks sad, give it some water!"}, 1),
+        (new List<string> {"Notice me senpai!"}, 15),
+        (new List<string> {"Pet the cat!"}, 3)
     };
 
-    private int totalWeights = 18;
-    
+    private int totalWeights = 28;
+
+    public static ChatController instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -78,8 +85,9 @@ public class ChatController : MonoBehaviour
     {
         while (true)
         {
+            Debug.Log("sti " + sideTaskIndex);
             // when side task is no longer in chat, reset
-            if (sideTaskIndex >= 5)
+            if (sideTaskIndex >= 5 || currentSideTask == -1)
             {
                 currentSideTask = -1;
                 sideTaskIndex = -1;
@@ -97,7 +105,8 @@ public class ChatController : MonoBehaviour
                         currWeight += sideTaskMessages[i].weight;
                         if (currWeight >= currentSideTask)
                         {
-                            messages.Insert(0, sideTaskMessages[i].message);
+                            int message = Random.Range(0, sideTaskMessages[i].messages.Count);
+                            messages.Insert(0, sideTaskMessages[i].messages[message]);
                             currentSideTask = i;
                             sideTaskIndex = 0;
                             break;
