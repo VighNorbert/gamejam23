@@ -11,12 +11,17 @@ public class ChatController : MonoBehaviour
 {
     
     public Image[] texts;
+    public Image donation;
     
     public int currentSideTask = -1;
     public int nextSideTaskIn;
     
     public int currentRandomEvent = -1;
     public int nextRandomEventIn;
+
+    public int nextDonationIn = -1;
+    private int donationIndex = -1;
+    private int donated;
     
     private float random;
     private int sideTaskIndex = -1;
@@ -85,7 +90,6 @@ public class ChatController : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("sti " + sideTaskIndex);
             // when side task is no longer in chat, reset
             if (sideTaskIndex >= 5 || currentSideTask == -1)
             {
@@ -96,7 +100,7 @@ public class ChatController : MonoBehaviour
             // if side task is not set, generate with probability
             if (currentSideTask < 0)
             {
-                if (nextSideTaskIn == 0)
+                if (nextSideTaskIn == 0 && donationIndex == -1)
                 {
                     currentSideTask = Random.Range(0, totalWeights);
                     int currWeight = 0;
@@ -117,7 +121,10 @@ public class ChatController : MonoBehaviour
                 else
                 {
                     messages.Insert(0, GetRandomFanWord());
-                    nextSideTaskIn -= 1;
+                    if (donationIndex == -1)
+                    {
+                        nextSideTaskIn -= 1;   
+                    }
                 }
             }
             // if side task is set, just do message
@@ -139,6 +146,19 @@ public class ChatController : MonoBehaviour
                 messages.RemoveAt(6);
             }
             
+            // donations handling
+            if (nextDonationIn == 0)
+            {
+                donated = Random.Range(30, 51);
+                DonationsCount.AddDonation(donated);
+                donationIndex = 0;
+                nextDonationIn = -1;
+            }
+            else if (nextDonationIn > 0)
+            {
+                nextDonationIn -= 1;
+            }
+
             // set texts and color of all message bubbles
             for (int i=0; i<messages.Count; i++)
             {
@@ -151,6 +171,18 @@ public class ChatController : MonoBehaviour
                 {
                     texts[i].color = Color.white;
                 }
+            }
+            
+            if (donationIndex >= 0 && donationIndex < 6)
+            {
+                texts[donationIndex].color = Color.magenta;
+                texts[donationIndex].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text =
+                    "Donation: You have received $" + donated;
+                donationIndex += 1;
+            }
+            else
+            {
+                donationIndex = -1;
             }
 
             // if no random event is active
@@ -179,6 +211,11 @@ public class ChatController : MonoBehaviour
             yield return new WaitForSeconds(random);
         }
     }
+
+    public void CompleteTask()
+    {
+        texts[sideTaskIndex].color = Color.white;
+    }
     
     string GetRandomFanWord()
     {
@@ -190,5 +227,10 @@ public class ChatController : MonoBehaviour
         }
         lastMessage = randomIndex;
         return fanMessages[randomIndex];
+    }
+
+    public void setDonation()
+    {
+        nextDonationIn = Random.Range(2, 4);
     }
 }

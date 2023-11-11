@@ -37,10 +37,7 @@ public class ClickController : MonoBehaviour
                         light.SetActive(!light.active);
                         if (ChatController.instance.currentRandomEvent == 0)
                         {
-                            ViewersCount.AddViewers(Random.Range(5, 21) * spln);
-                            DonationsCount.AddDonation(Random.Range(30, 51));
-                            ChatController.instance.currentRandomEvent = -1;
-                            spln += 1;
+                            CompleteRandomEvent();
                         }
                     }
                     if (hit.collider.gameObject.name == "Plant")
@@ -49,10 +46,7 @@ public class ClickController : MonoBehaviour
                         //Change cursor
                         if (ChatController.instance.currentSideTask == 6)
                         {
-                            ChatController.instance.currentSideTask = -1;
-                            ViewersCount.AddViewers(Random.Range(5, 11) * spln);
-                            DonationsCount.AddDonation(Random.Range(30, 51));
-                            spln += 1;
+                            CompleteTask();
                         }
                     }
                     else if (hit.collider.gameObject.name == "Drink")
@@ -61,10 +55,7 @@ public class ClickController : MonoBehaviour
                         //Animation
                         if (ChatController.instance.currentSideTask == 0)
                         {
-                            spln += 1;
-                            ChatController.instance.currentSideTask = -1;
-                            ViewersCount.AddViewers(Random.Range(5, 11) * spln);
-                            DonationsCount.AddDonation(Random.Range(30, 51));
+                            CompleteTask();
                         }
                     }
                     else if (hit.collider.gameObject.name == "Redbull")
@@ -73,10 +64,7 @@ public class ClickController : MonoBehaviour
                         //Animation
                         if (ChatController.instance.currentRandomEvent == 1)
                         {
-                            spln += 1;
-                            ChatController.instance.currentRandomEvent = -1;
-                            ViewersCount.AddViewers(Random.Range(5, 11) * spln);
-                            DonationsCount.AddDonation(Random.Range(30, 51));
+                            CompleteRandomEvent();
 
                         }
                     }
@@ -95,18 +83,12 @@ public class ClickController : MonoBehaviour
                         }
                         if (ChatController.instance.currentSideTask == 4)
                         {
-                            spln += 1;
-                            ChatController.instance.currentSideTask = -1;
-                            ViewersCount.AddViewers(Random.Range(5, 11) * spln);
-                            DonationsCount.AddDonation(Random.Range(30, 51));
+                            CompleteTask();
 
                         }
                         if (ChatController.instance.currentSideTask == 5)
                         {
-                            spln += 1;
-                            ChatController.instance.currentSideTask = -1;
-                            ViewersCount.AddViewers(Random.Range(5, 11) * spln);
-                            DonationsCount.AddDonation(Random.Range(30, 51));
+                            CompleteTask();
 
                         }
                     }
@@ -115,10 +97,7 @@ public class ClickController : MonoBehaviour
                         SoundManager.instance.NextSong();
                         if (ChatController.instance.currentSideTask == 3)
                         {
-                            spln += 1;
-                            ChatController.instance.currentSideTask = -1;
-                            ViewersCount.AddViewers(Random.Range(5, 11) * spln);
-                            DonationsCount.AddDonation(Random.Range(30, 51));
+                            CompleteTask();
 
                         }
                     }
@@ -127,10 +106,7 @@ public class ClickController : MonoBehaviour
                         SoundManager.instance.HigherVolume();
                         if (ChatController.instance.currentSideTask == 2)
                         {
-                            spln += 1;
-                            ChatController.instance.currentSideTask = -1;
-                            ViewersCount.AddViewers(Random.Range(5, 11) * spln);
-                            DonationsCount.AddDonation(Random.Range(30, 51));
+                            CompleteTask();
 
                         }
                     }
@@ -139,16 +115,29 @@ public class ClickController : MonoBehaviour
                         SoundManager.instance.LowerVolume();
                         if (ChatController.instance.currentSideTask == 3)
                         {
-                            spln += 1;
-                            ChatController.instance.currentSideTask = -1;
-                            ViewersCount.AddViewers(Random.Range(5, 11) * spln);
-                            DonationsCount.AddDonation(Random.Range(30, 51));
-
+                            CompleteTask();
                         }
                     }
                 }
             }
         }
+    }
+
+    public void CompleteTask()
+    {
+        ChatController.instance.CompleteTask();
+        ChatController.instance.currentSideTask = -1;
+        ChatController.instance.setDonation();
+        spln += 1;
+        ViewersCount.AddViewers(Random.Range(5, 21) * spln);
+    }
+
+    void CompleteRandomEvent()
+    {
+        ChatController.instance.currentRandomEvent = -1;
+        ChatController.instance.setDonation();
+        spln += 1;
+        ViewersCount.AddViewers(Random.Range(5, 21) * spln);
     }
 
     IEnumerator ChangeBoolAfterDelay()

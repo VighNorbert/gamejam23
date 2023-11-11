@@ -10,11 +10,8 @@ public class ButtonClick : MonoBehaviour
     {
         if (ChatController.instance.currentSideTask == 7 && image.color == Color.yellow)
         {
-            ClickController.instance.spln += 1;
-            ChatController.instance.currentSideTask = -1;
-            ViewersCount.AddViewers(Random.Range(5, 11) * ClickController.instance.spln);
-            DonationsCount.AddDonation(Random.Range(30, 51));
-            image.color = Color.white;
+            ClickController.instance.CompleteTask();
+            ChatController.instance.CompleteTask();
         }
     }
 }
