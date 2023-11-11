@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ClickController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class ClickController : MonoBehaviour
     int nowpreTommyho = 0;
 
     public bool leftTrig = true;
+    public GameObject blackOut;
 
     public static ClickController instance;
 
@@ -58,14 +60,16 @@ public class ClickController : MonoBehaviour
                             CompleteTask();
                         }
                     }
-                    else if (hit.collider.gameObject.name == "Redbull")
+                    else if (hit.collider.gameObject.name == "RedBull")
                     {
                         //Change cursor
                         //Animation
+                        blackOut.SetActive(false);
+                        RandomEventController.instance.setOff = true;
+                        blackOut.GetComponent<Image>().color = new Color(blackOut.GetComponent<Image>().color.r, blackOut.GetComponent<Image>().color.g, blackOut.GetComponent<Image>().color.b, 0);
                         if (ChatController.instance.currentRandomEvent == 1)
                         {
                             CompleteRandomEvent();
-
                         }
                     }
                     else if (hit.collider.gameObject.name == "Left")
@@ -74,6 +78,14 @@ public class ClickController : MonoBehaviour
                         {
                             SoundManager.instance.PreviousSong();
                             leftTrig = false;
+                            if (ChatController.instance.currentSideTask == 4)
+                            {
+                                spln += 1;
+                                ChatController.instance.currentSideTask = -1;
+                                ViewersCount.AddViewers(Random.Range(5, 11) * spln);
+                                DonationsCount.AddDonation(Random.Range(30, 51));
+
+                            }
                         }
                         else
                         {
@@ -89,7 +101,7 @@ public class ClickController : MonoBehaviour
                         if (ChatController.instance.currentSideTask == 5)
                         {
                             CompleteTask();
-
+                            
                         }
                     }
                     else if (hit.collider.gameObject.name == "Right")
@@ -104,16 +116,15 @@ public class ClickController : MonoBehaviour
                     else if (hit.collider.gameObject.name == "Up")
                     {
                         SoundManager.instance.HigherVolume();
-                        if (ChatController.instance.currentSideTask == 2)
+                        if (ChatController.instance.currentSideTask == 1)
                         {
                             CompleteTask();
-
                         }
                     }
                     else if (hit.collider.gameObject.name == "Down")
                     {
                         SoundManager.instance.LowerVolume();
-                        if (ChatController.instance.currentSideTask == 3)
+                        if (ChatController.instance.currentSideTask == 2)
                         {
                             CompleteTask();
                         }
