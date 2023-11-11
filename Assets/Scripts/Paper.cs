@@ -24,6 +24,8 @@ public class Paper : MonoBehaviour
 
     private bool _colorChanged = false;
     private Pen _colorRemoved = null;
+
+    private bool lastWasBr = false;
     
     void Start()
     {
@@ -85,7 +87,6 @@ public class Paper : MonoBehaviour
         }
         paperTextTMP.text = templateCorrect;
         
-        Debug.Log("Next char:" + GetNextChar() + " Correct: " + IsCorrectColor());
         MoveHand();
     }
 
@@ -109,60 +110,65 @@ public class Paper : MonoBehaviour
         string nextChar = GetNextChar();
         
         
-        
-        if (nextChar == " " && Input.GetKeyDown("space"))
-        {
-            // add letter
-            if (_colorRemoved)
+        if (gm.isPenAvailable) {
+            if (nextChar == " " && Input.GetKeyDown("space"))
             {
-                writtenText += _colorRemoved.GetTerminationString();
-                _colorRemoved = null;
-            }
-            if (_colorChanged)
-            {
-                writtenText += nextColor.GetDefinitionString();
-                _colorChanged = false;
-            }
-            // add space
-            writtenText += " ";
-            writtenTextTMP.SetText(writtenText + " ");
-            writtenProgress += 1;
-            MoveHand();
-            Debug.Log("Next char:" + GetNextChar() + " Correct: " + IsCorrectColor());
-        }
-        else if (nextChar != " " && Input.GetKeyDown(nextChar.ToLower()) && IsCorrectColor())
-        {
-            // add letter
-            if (_colorRemoved)
-            {
-                writtenText += _colorRemoved.GetTerminationString();
-                _colorRemoved = null;
-            }
-            if (_colorChanged)
-            {
-                writtenText += nextColor.GetDefinitionString();
-                _colorChanged = false;
-            }
-
-            if (writtenText.Length >= 4 && writtenText.Substring(writtenText.Length - 4, 4) == "br> ")
-            {
-                writtenText = writtenText.Substring(0, writtenText.Length - 1);
-            }
-            writtenText += nextChar;
-            writtenTextTMP.SetText(writtenText + " ");
-            writtenProgress += 1;
-            MoveHand();
-            Debug.Log("Next char:" + GetNextChar() + " Correct: " + IsCorrectColor());
-        }
-        else if (nextChar != " " && Input.anyKeyDown)
-        {
-            for (KeyCode key = KeyCode.A; key <= KeyCode.Z; key++)
-            {
-                if (Input.GetKeyDown(key))
+                // add letter
+                if (_colorRemoved)
                 {
-                    // bad character
-                    Debug.Log("tak si kokot asi");
-                    break; // Exit the loop after the first match
+                    writtenText += _colorRemoved.GetTerminationString();
+                    _colorRemoved = null;
+                }
+                if (_colorChanged)
+                {
+                    writtenText += nextColor.GetDefinitionString();
+                    _colorChanged = false;
+                }
+                // add space
+                writtenText += " ";
+                writtenTextTMP.SetText(writtenText + " ");
+                writtenProgress += 1;
+                MoveHand();
+            }
+            else if (nextChar != " " && Input.GetKeyDown(nextChar.ToLower()) && IsCorrectColor())
+            {
+                // add letter
+                if (_colorRemoved)
+                {
+                    writtenText += _colorRemoved.GetTerminationString();
+                    _colorRemoved = null;
+                }
+                if (_colorChanged)
+                {
+                    writtenText += nextColor.GetDefinitionString();
+                    _colorChanged = false;
+                }
+
+                if (writtenText.Length >= 4 && writtenText.Substring(writtenText.Length - 4, 4) == "br> ")
+                {
+                    writtenText = writtenText.Substring(0, writtenText.Length - 1);
+                }
+                writtenText += nextChar;
+                writtenTextTMP.SetText(writtenText + " ");
+                if (!lastWasBr)
+                {
+                    gm.handAnimator.SetTrigger("Write");
+                }
+
+                gm.isPenAvailable = false;
+                writtenProgress += 1;
+                MoveHand();
+            }
+            else if (nextChar != " " && Input.anyKeyDown)
+            {
+                for (KeyCode key = KeyCode.A; key <= KeyCode.Z; key++)
+                {
+                    if (Input.GetKeyDown(key))
+                    {
+                        // bad character
+                        Debug.Log("bad char");
+                        break; // Exit the loop after the first match
+                    }
                 }
             }
         }
@@ -184,6 +190,7 @@ public class Paper : MonoBehaviour
                 writtenTextTMP.SetText(writtenText + " ");
                 writtenProgress += 4;
                 MoveHand();
+                lastWasBr = true;
             }
             if (correctPaperText.Substring(writtenProgress, 3) == "<b>")
             {
@@ -230,12 +237,13 @@ public class Paper : MonoBehaviour
 
     void MoveHand()
     {
-        if (writtenTextTMP.text.Length == 0)
+        TMP_TextInfo textInfo = writtenTextTMP.textInfo;
+        if (textInfo.characterCount == 0)
         {
-            gm.hand.transform.position = new Vector3(0, 0, 0);
+            gm.handAnimator.SetTrigger("EndWriting");
+            gm.isPenAvailable = true;
             return;
         }
-        TMP_TextInfo textInfo = writtenTextTMP.textInfo;
         TMP_CharacterInfo lastCharacterInfo = textInfo.characterInfo[textInfo.characterCount - 1];
         
 
@@ -246,6 +254,7 @@ public class Paper : MonoBehaviour
         // Convert local position to world position
         Vector3 rightSideWorldPosition = writtenTextTMP.transform.TransformPoint(rightSideLocalPosition) + new Vector3(0.1f, 0f, 0f);
         
-        gm.hand.transform.position = rightSideWorldPosition;
+        StartCoroutine(gm.AnimateWrite(rightSideWorldPosition, !lastWasBr));
+        lastWasBr = false;
     }
 }
