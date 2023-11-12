@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17300113, g: 0.21621299, b: 0.29819947, a: 1}
+  m_IndirectSpecularColor: {r: 0.17300135, g: 0.2162133, b: 0.29820007, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1611,8 +1611,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   donationText: {fileID: 175191553}
-  image: {fileID: 1097242929}
-  donationGoal: 150
+  image: {fileID: 442476166}
+  donationGoal: 250
 --- !u!114 &497088010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3796,7 +3796,7 @@ MonoBehaviour:
   - {fileID: 192399147}
   - {fileID: 2098887839}
   - {fileID: 1594668440}
-  donation: {fileID: 0}
+  donation: {fileID: 442476168}
   currentSideTask: -1
   nextSideTaskIn: 0
   donationObject: {fileID: 1219069910}
