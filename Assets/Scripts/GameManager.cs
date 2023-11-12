@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
     private Paper _previousPaper;
 
     public GameObject pointer;
+
+    public DonationController dc;
     
     void Start()
     {
@@ -67,11 +69,11 @@ public class GameManager : MonoBehaviour
             {
                 ChangePen(pens[0]);
             }
-            else if (Input.GetKeyDown("4") && pens[1].enabled && !selectedPen.Equals(pens[1]))
+            else if (Input.GetKeyDown("4") && pens[1].gameObject.activeSelf && !selectedPen.Equals(pens[1]))
             {
                 ChangePen(pens[1]);
             }
-            else if (Input.GetKeyDown("5") && pens[2].enabled && !selectedPen.Equals(pens[2]))
+            else if (Input.GetKeyDown("5") && pens[2].gameObject.activeSelf && !selectedPen.Equals(pens[2]))
             {
                 ChangePen(pens[2]);
             }
@@ -98,6 +100,10 @@ public class GameManager : MonoBehaviour
                 Quaternion.identity);
             currentPaper.gm = this;
             paperIndex++;
+            
+            int donated = Random.Range(50, 101);
+            DonationsCount.AddDonation(donated);
+            dc.StartC("Donation: You have received $" + donated + " for completing a page!");
 
             StartCoroutine(PutPenDown());
         }
@@ -171,9 +177,11 @@ public class GameManager : MonoBehaviour
     public void OnPenPutDown()
     {
         selectedPen.GetComponentInChildren<MeshRenderer>().enabled = true;
-        hand.pen.SetActive(false);
-        hand.marker.SetActive(false);
-        hand.highlighter.SetActive(false);
+        hand.blackMarker.SetActive(false);
+        hand.blackPen.SetActive(false);
+        hand.redPen.SetActive(false);
+        hand.bluePen.SetActive(false);
+        hand.greenPen.SetActive(false);
         selectedPen = nextPen;
         nextPen = null;
         StartCoroutine(PenSelector());
@@ -183,17 +191,23 @@ public class GameManager : MonoBehaviour
     {
         if (selectedPen == null) return;
         selectedPen.GetComponentInChildren<MeshRenderer>().enabled = false;
-        if (selectedPen.isForWriting)
+        switch (selectedPen.id)
         {
-            hand.pen.SetActive(true);
-        }
-        else if (selectedPen.isMarker)
-        {
-            hand.marker.SetActive(true);
-        }
-        else if (selectedPen.isForHighlighting)
-        {
-            hand.highlighter.SetActive(true);
+            case 0:
+                hand.blackMarker.SetActive(true);
+                break;
+            case 1:
+                hand.blackPen.SetActive(true);
+                break;
+            case 2:
+                hand.redPen.SetActive(true);
+                break;
+            case 3:
+                hand.bluePen.SetActive(true);
+                break;
+            case 4:
+                hand.greenPen.SetActive(true);
+                break;
         }
         
         StartCoroutine(HandReturnToPosition());
@@ -271,9 +285,11 @@ public class GameManager : MonoBehaviour
     {
         
         selectedPen.GetComponentInChildren<MeshRenderer>().enabled = true;
-        hand.pen.SetActive(false);
-        hand.marker.SetActive(false);
-        hand.highlighter.SetActive(false);
+        hand.blackMarker.SetActive(false);
+        hand.blackPen.SetActive(false);
+        hand.redPen.SetActive(false);
+        hand.bluePen.SetActive(false);
+        hand.greenPen.SetActive(false);
         selectedPen = null;
         StartCoroutine(AnimateHandToPaper());
     }

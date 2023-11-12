@@ -463,7 +463,9 @@ MonoBehaviour:
   gm: {fileID: 0}
   wordsContainer: {fileID: 1129553390039480534}
   _words: []
-  correctPaperText: Stress
+  correctPaperText: Stress is the leading cause <br>of mental <b><color=#000000>and
+    physical <br>problems,</color></b> therefore <br>feeling relaxed is often <br>beneficial
+    for health.
   paperTextTMP: {fileID: 2687684495736324469}
   writtenProgress: 0
   writtenText: 
@@ -634,7 +636,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Stress is the leading cause of mental <b><color=#000000>and physical problems,</color></b>
-    therefore feeling relaxed is often beneficial for  health.
+    therefore feeling relaxed is often beneficial for health.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5acb2f18dc85983438b8944a2821a64c, type: 2}
   m_sharedMaterial: {fileID: 8309817545161471939, guid: 5acb2f18dc85983438b8944a2821a64c, type: 2}

@@ -249,7 +249,7 @@ MonoBehaviour:
   gm: {fileID: 0}
   wordsContainer: {fileID: 1129553390039480534}
   _words: []
-  correctPaperText: When one <b><color=#000000>is stressed,</color> <br>the sympathetic
+  correctPaperText: When one <b><color=#000000>is stressed,</color></b> <br>the sympathetic
     <br>nervous system is activated because we <br>are in a fight or flight <br><b><color=#000000>response
     mode,</color></b> over <br>time, this could have <br>negative effects on a <br>human
     body.

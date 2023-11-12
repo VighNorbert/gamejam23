@@ -13,11 +13,12 @@ public class Pen : MonoBehaviour
     
     public string color;
     public string fadedColor;
-    public bool isForWriting;
     public bool isMarker;
     public bool isForHighlighting;
     public Material mat;
     private bool shaking;
+
+    public int id;
     
     void Start()
     {

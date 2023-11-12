@@ -182,7 +182,7 @@ public class ChatController : MonoBehaviour
             // donations handling
             if (nextDonationIn == 0)
             {
-                donated = Random.Range(30, 51);
+                donated = Random.Range(5, 30);
                 DonationsCount.AddDonation(donated);
                 donationObject.GetComponent<DonationController>().StartC("Donation: You have received $" + donated + " for listening to fans!");
                 donationIndex = 0;
