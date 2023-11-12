@@ -184,6 +184,7 @@ public class ChatController : MonoBehaviour
             {
                 donated = Random.Range(30, 51);
                 DonationsCount.AddDonation(donated);
+                donationObject.GetComponent<DonationController>().StartC("Donation: You have received $" + donated + " for listening to fans!");
                 donationIndex = 0;
                 nextDonationIn = -1;
             }
@@ -211,7 +212,6 @@ public class ChatController : MonoBehaviour
                 texts[donationIndex].color = Color.magenta;
                 texts[donationIndex].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text =
                     "Donation: You have received $" + donated;
-                donationObject.GetComponent<DonationController>().StartC("Donation: You have received $" + donated);
                 donationIndex += 1;
             }
             else
@@ -236,11 +236,11 @@ public class ChatController : MonoBehaviour
 
             if (ViewersCount.viewersCount > 1000)
             {
-                random = Random.Range(3.5f, 10.0f); // next message time
+                random = Random.Range(1.5f, 2.0f); // next message time
             }
             else
             {
-                random = Random.Range(4.0f, 10.0f); // next message time   
+                random = Random.Range(1.0f, 2.0f); // next message time   
             }
             yield return new WaitForSeconds(random);
         }

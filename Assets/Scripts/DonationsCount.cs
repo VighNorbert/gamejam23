@@ -5,7 +5,7 @@ using TMPro;
 
 public class DonationsCount : MonoBehaviour
 {
-    public static float donationsCount = 50;
+    public static float donationsCount = 1;
     public TextMeshProUGUI donationText;
 
     public GameObject image;
