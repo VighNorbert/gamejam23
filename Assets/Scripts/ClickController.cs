@@ -61,12 +61,12 @@ public class ClickController : MonoBehaviour
                     {
                         //Change cursor
                         //Animation
-                        blackOut.SetActive(false);
-                        RandomEventController.instance.setOff = true;
-                        blackOut.GetComponent<Image>().color = new Color(blackOut.GetComponent<Image>().color.r, blackOut.GetComponent<Image>().color.g, blackOut.GetComponent<Image>().color.b, 0);
-                        if (ChatController.instance.currentRandomEvent == 1)
+                        //blackOut.SetActive(false);
+                       // RandomEventController.instance.setOff = true;
+                        //blackOut.GetComponent<Image>().color = new Color(blackOut.GetComponent<Image>().color.r, blackOut.GetComponent<Image>().color.g, blackOut.GetComponent<Image>().color.b, 0);
+                        if (ChatController.instance.currentSideTask == 0)
                         {
-                            CompleteRandomEvent();
+                            CompleteTask();
                         }
                     }
                     else if (hit.collider.gameObject.name == "Left")

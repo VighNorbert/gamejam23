@@ -21,7 +21,7 @@ public class SoundManager : MonoBehaviour
     void Start()
     {
         source.Play();
-        source.volume = 0.5f;
+        source.volume = 0.3f;
     }
 
     public void NextSong()

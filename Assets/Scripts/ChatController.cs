@@ -79,22 +79,27 @@ public class ChatController : MonoBehaviour
         "Nice Desk!",
         "You have a really nice setup!",
         "If you notice this! Tell the creators!",
+        "Switch your pen to write in different color!",
+        "Switch your pen to write in different color!",
+        "Marker is for BOLD!",
+        "Use marker for BOLD!",
+        "Remember to listen to the chat!",
     };
 
     private List<(List<string> messages, int weight)> sideTaskMessages = new List<(List<string>, int)>
     {
-        (new List<string> {"Aren't you thirsty?", "Don't forget to hydrate!", "Remember to drink some water!"}, 1),
-        (new List<string> {"Can you turn the volume up?", "Turn the music up!"}, 1),
-        (new List<string> {"Can you turn the volume down?", "Could you lower the volume?"}, 1),
-        (new List<string> {"This song is bad, give us another one", "Not feeling it, new song, please.", "This song? Nah. Another one?", "Not vibing to this song. New one?"}, 1),
+        (new List<string> {"Aren't you thirsty?", "Don't forget to hydrate!", "Remember to drink some water!"}, 2),
+        (new List<string> {"Can you turn the volume up?", "Turn the music up!"}, 2),
+        (new List<string> {"Can you turn the volume down?", "Could you lower the volume?"}, 2),
+        (new List<string> {"This song is bad, give us another one", "Not feeling it, new song, please.", "This song? Nah. Another one?", "Not vibing to this song. New one?"}, 4),
         (new List<string> {"Can you play that last song again?", "Could you give us that last song again?", "Replay the last track, if you can."}, 1),
         (new List<string> {"Can you start the song from the beginning?", "Give us that song from the start!", "Play it from the beginning again!"}, 1),
         (new List<string> {"That flower looks sad, give it some water!", "Notice the sad flower? Time to hydrate it!", "Spotting a sad flower; show it some water care!"}, 1),
-        (new List<string> {"Notice me senpai!", "Could you give my message a thumbs up? It's my BDay!", "Do you even read the chat?"}, 1),
+        (new List<string> {"Notice me senpai! Click on my comment.", "Could you give my message a thumbs up? It's my BDay!", "Do you even read the chat? Click on me!"}, 2),
         //(new List<string> {"Pet the cat!", "Show your cat some love!"}, 1)
     };
 
-    private int totalWeights = 9;
+    private int totalWeights = 15;
 
     public static ChatController instance;
 
