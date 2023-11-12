@@ -31,8 +31,8 @@ public class ChatController : MonoBehaviour
 
     private int lastMessage = 0;
 
-    private int minNextSideTask = 5;
-    private int maxNextSideTask = 8;
+    private int minNextSideTask = 7;
+    private int maxNextSideTask = 10;
     private int minNextRandomEvent = 10;
     private int maxNextRandomEvent = 15;
     
@@ -241,13 +241,13 @@ public class ChatController : MonoBehaviour
                 }
             }
 
-            if (ViewersCount.viewersCount > 1000)
+            if (ViewersCount.viewersCount > 10000)
             {
-                random = Random.Range(1.5f, 2.0f); // next message time
+                random = Random.Range(4f, 7f); // next message time
             }
             else
             {
-                random = Random.Range(1.0f, 2.0f); // next message time   
+                random = Random.Range(4f, 9f); // next message time   
             }
             yield return new WaitForSeconds(random);
         }

@@ -171,8 +171,10 @@ public class Paper : MonoBehaviour
                 writtenTextTMP.SetText(writtenText + " ");
                 combo += 1;
                 WritingSound.instance.playWriting();
-                if (writtenText.Length % 5 == 4)
+                if (Random.Range(0, 10) < 3)
                 {
+                    gm.pointer.GetComponentInChildren<ParticleSystem>().Stop();
+                    gm.pointer.GetComponentInChildren<ParticleSystem>().Play();
                     ViewersCount.AddViewers(combo * 2);   
                 }
                 if (!lastWasBr)
@@ -316,8 +318,6 @@ public class Paper : MonoBehaviour
         Vector3 rightSideWorldPosition = writtenTextTMP.transform.TransformPoint(rightSideLocalPosition) + new Vector3(0.1f, 0f, 0f);
 
         gm.pointer.transform.position = rightSideWorldPosition;
-        gm.pointer.GetComponentInChildren<ParticleSystem>().Stop();
-        gm.pointer.GetComponentInChildren<ParticleSystem>().Play();
         
         StartCoroutine(gm.AnimateWrite(rightSideWorldPosition, !lastWasBr));
         lastWasBr = false;

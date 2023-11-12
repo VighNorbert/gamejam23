@@ -5,7 +5,7 @@ using TMPro;
 
 public class DonationsCount : MonoBehaviour
 {
-    public static float donationsCount = 200;
+    public static float donationsCount = 0;
     public TextMeshProUGUI donationText;
 
     public GameManager gm;

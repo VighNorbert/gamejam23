@@ -495,7 +495,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356521, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356523, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_Sprite
@@ -1312,7 +1312,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356521, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356523, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_Sprite
@@ -1500,7 +1500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356521, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356523, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_Sprite
@@ -1633,14 +1633,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.98039216, g: 0.98039216, b: 0, a: 0}
+  m_Color: {r: 0.98039216, g: 0.8531382, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1480148949, guid: 82ba2e1aa2c7d3145aca5169be27390b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1777,7 +1777,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 116, y: 58}
+  m_AnchoredPosition: {x: 115, y: 57}
   m_SizeDelta: {x: 134.0065, y: 67.284}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &497088009
@@ -2029,7 +2029,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356521, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356523, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_Sprite
@@ -2701,7 +2701,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356521, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356523, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_Sprite
@@ -4119,7 +4119,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356521, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356523, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_Sprite
@@ -9386,14 +9386,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8113208, g: 0.29595345, b: 0.7100881, a: 0}
+  m_Color: {r: 0.764151, g: 0.26240653, b: 0.6653226, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1480148949, guid: 82ba2e1aa2c7d3145aca5169be27390b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9495,7 +9495,7 @@ MonoBehaviour:
   currentSideTask: -1
   nextSideTaskIn: 0
   donationObject: {fileID: 1219069910}
-  notificationObject: {fileID: 0}
+  notificationObject: {fileID: 392345985}
   currentRandomEvent: -1
   nextRandomEventIn: 0
   nextDonationIn: -1
@@ -10966,7 +10966,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -10983,8 +10983,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -11330,8 +11330,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
