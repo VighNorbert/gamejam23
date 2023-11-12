@@ -2885,7 +2885,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4171544300937672657
 Transform:
   m_ObjectHideFlags: 0
@@ -4782,7 +4782,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6745449174730198637}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4848,7 +4848,7 @@ MonoBehaviour:
   _words: []
   correctPaperText: In the heart of the ancient <br>kingdom of Eldoria, there <br>lay
     <b><color=#000000>a mystical and</color></b> <br>enchanting forest <br>known
-    as the <br>"Whispering Woods." <br>This forest was unlike <br>any other in <b><color=#000000>the
+    as the <br>Whispering Woods. <br>This forest was unlike <br>any other in <b><color=#000000>the
     realm.</color></b> <br>Legend had it that the <br>Whispering Woods were <br>home
     <b><color=#000000>to magical</color></b> <br>creatures and hidden <br>treasures
     waiting to be <br>discovered.
@@ -5515,11 +5515,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In the heart of the ancient kingdom of Eldoria, there lay <b><color=#000000>a
-    mystical and</color><b> enchanting forest known as the "Whispering Woods." This
-    forest was unlike any other in <b><color=#000000>the realm.</color></b> Legend
-    had it that the Whispering Woods were home <b><color=#000000>to magical</color></b>
-    creatures and hidden treasures waiting to be discovered.
+  m_text: In the heart of the ancient <br>kingdom of Eldoria, there <br>lay <b><color=#000000>a
+    mystical and</color></b> <br>enchanting forest <br>known as the <br>Whispering
+    Woods. <br>This forest was unlike <br>any other in <b><color=#000000>the realm.</color></b>
+    <br>Legend had it that the <br>Whispering Woods were <br>home <b><color=#000000>to
+    magical</color></b> <br>creatures and hidden <br>treasures waiting to be <br>discovered.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5acb2f18dc85983438b8944a2821a64c, type: 2}
   m_sharedMaterial: {fileID: 8309817545161471939, guid: 5acb2f18dc85983438b8944a2821a64c, type: 2}

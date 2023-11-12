@@ -41,21 +41,21 @@ public class ClickController : MonoBehaviour
                     }
                     if (hit.collider.gameObject.name == "Plant")
                     {
+                        SFXManager.instance.playWatering();
                         //Animation
                         //Change cursor
                         if (ChatController.instance.currentSideTask == 6)
                         {
-                            SFXManager.instance.playWatering();
                             CompleteTask();
                         }
                     }
                     else if (hit.collider.gameObject.name == "Drink")
                     {
+                        SFXManager.instance.playDrink();
                         //Change cursor
                         //Animation
                         if (ChatController.instance.currentSideTask == 0)
                         {
-                            SFXManager.instance.playDrink();
                             CompleteTask();
                         }
                     }
@@ -66,9 +66,9 @@ public class ClickController : MonoBehaviour
                         //blackOut.SetActive(false);
                        // RandomEventController.instance.setOff = true;
                         //blackOut.GetComponent<Image>().color = new Color(blackOut.GetComponent<Image>().color.r, blackOut.GetComponent<Image>().color.g, blackOut.GetComponent<Image>().color.b, 0);
+                        SFXManager.instance.playDrink();
                         if (ChatController.instance.currentSideTask == 0)
                         {
-                            SFXManager.instance.playDrink();
                             CompleteTask();
                         }
                     }

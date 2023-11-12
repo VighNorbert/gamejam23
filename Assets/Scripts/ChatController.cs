@@ -31,8 +31,8 @@ public class ChatController : MonoBehaviour
 
     private int lastMessage = 0;
 
-    private int minNextSideTask = 7;
-    private int maxNextSideTask = 10;
+    private int minNextSideTask = 4;
+    private int maxNextSideTask = 7;
     private int minNextRandomEvent = 10;
     private int maxNextRandomEvent = 15;
     
@@ -150,7 +150,7 @@ public class ChatController : MonoBehaviour
                         {
                             int message = Random.Range(0, sideTaskMessages[i].messages.Count);
                             messages.Insert(0, sideTaskMessages[i].messages[message]);
-                            notificationObject.GetComponent<NotificationController>().StartC(sideTaskMessages[i].messages[message]);
+                            notificationObject.GetComponent<NotificationController>().StartC("You have a new special message in chat!");
                             currentSideTask = i;
                             sideTaskIndex = 0;
                             break;
