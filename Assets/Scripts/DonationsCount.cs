@@ -5,21 +5,30 @@ using TMPro;
 
 public class DonationsCount : MonoBehaviour
 {
-    public static int donationsCount = 0;
+    public static float donationsCount = 50;
     public TextMeshProUGUI donationText;
+
+    public GameObject image;
+
+    public float donationGoal = 250;
     
-    public static void AddDonation(int addCount)
+    public static void AddDonation(float addCount)
     {
         donationsCount += addCount;
     }
 
-    public static void SubtractDonation(int substractCount)
+    public static void SubtractDonation(float substractCount)
     {
         donationsCount -= substractCount;
     }
 
     private void Update()
     {
+        if (donationsCount > donationGoal)
+        {
+            donationsCount = donationsCount - donationGoal;
+        }
+        image.transform.localScale = new Vector3((float)(donationsCount / donationGoal), image.transform.localScale.y, image.transform.localScale.z);
         donationText.text = donationsCount.ToString() + " $";
     }
 }

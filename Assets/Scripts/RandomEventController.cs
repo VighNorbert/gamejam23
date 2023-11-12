@@ -39,14 +39,14 @@ public class RandomEventController : MonoBehaviour
                 }
                 else
                 {
-                    light.SetActive(false);
-                    isSetOff = false;
+                    //light.SetActive(false);
+                    //isSetOff = false;
                 }
             }
             else if (ChatController.instance.currentRandomEvent == 1)
             {
-                blackOut.SetActive(true);
-                StartCoroutine(FadeInOut());
+                //blackOut.SetActive(true);
+                //StartCoroutine(FadeInOut());
 
             }
         } 

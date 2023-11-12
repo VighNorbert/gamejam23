@@ -15,6 +15,8 @@ public class ChatController : MonoBehaviour
     
     public int currentSideTask = -1;
     public int nextSideTaskIn;
+
+    public GameObject donationObject;
     
     public int currentRandomEvent = -1;
     public int nextRandomEventIn;
@@ -89,7 +91,7 @@ public class ChatController : MonoBehaviour
         (new List<string> {"Can you start the song from the beginning?", "Give us that song from the start!", "Play it from the beginning again!"}, 1),
         (new List<string> {"That flower looks sad, give it some water!", "Notice the sad flower? Time to hydrate it!", "Spotting a sad flower; show it some water care!"}, 1),
         (new List<string> {"Notice me senpai!", "Could you give my message a thumbs up? It's my BDay!", "Do you even read the chat?"}, 1),
-        (new List<string> {"Pet the cat!", "Show your cat some love!"}, 1)
+        //(new List<string> {"Pet the cat!", "Show your cat some love!"}, 1)
     };
 
     private int totalWeights = 9;
@@ -209,6 +211,7 @@ public class ChatController : MonoBehaviour
                 texts[donationIndex].color = Color.magenta;
                 texts[donationIndex].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text =
                     "Donation: You have received $" + donated;
+                donationObject.GetComponent<DonationController>().StartC("Donation: You have received $" + donated);
                 donationIndex += 1;
             }
             else
