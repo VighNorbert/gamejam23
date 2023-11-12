@@ -1636,6 +1636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   donationText: {fileID: 175191553}
+  gm: {fileID: 1973061708}
   image: {fileID: 442476166}
   donationGoal: 250
 --- !u!114 &497088010
@@ -5335,6 +5336,7 @@ MonoBehaviour:
   vc: {fileID: 0}
   paperIndex: 0
   pointer: {fileID: 1773613079}
+  dc: {fileID: 1219069914}
 --- !u!4 &2014743334 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1326033663896849707, guid: 2f849f94d4aba554ab6c87098f622ec6, type: 3}
@@ -5772,7 +5774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1326033663896849704, guid: 2f849f94d4aba554ab6c87098f622ec6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1326033663896849706, guid: 2f849f94d4aba554ab6c87098f622ec6, type: 3}
       propertyPath: id
@@ -5828,7 +5830,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2710124950137785106, guid: 2f849f94d4aba554ab6c87098f622ec6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f849f94d4aba554ab6c87098f622ec6, type: 3}
