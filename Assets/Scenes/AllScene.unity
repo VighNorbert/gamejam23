@@ -220,7 +220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356521, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_text
@@ -381,7 +381,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &64991879
 RectTransform:
   m_ObjectHideFlags: 0
@@ -629,7 +629,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356521, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_text
@@ -1898,10 +1898,12 @@ MonoBehaviour:
   - {fileID: 1283271429}
   - {fileID: 140613516}
   - {fileID: 54568251}
+  donation: {fileID: 0}
   currentSideTask: -1
   nextSideTaskIn: 0
   currentRandomEvent: -1
   nextRandomEventIn: 0
+  nextDonationIn: -1
 --- !u!114 &1128019030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2477,7 +2479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356521, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_text
@@ -3121,7 +3123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356521, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_text
@@ -3289,7 +3291,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356521, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_text
@@ -3446,7 +3448,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648258569987356521, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7648258570629910352, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
       propertyPath: m_text
@@ -3653,6 +3655,7 @@ GameObject:
   - component: {fileID: 1751896284}
   - component: {fileID: 1751896286}
   - component: {fileID: 1751896285}
+  - component: {fileID: 1751896287}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -3690,6 +3693,7 @@ MonoBehaviour:
   light: {fileID: 705507993}
   spln: 0
   leftTrig: 1
+  blackOut: {fileID: 64991878}
 --- !u!82 &1751896285
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3813,6 +3817,23 @@ MonoBehaviour:
   source: {fileID: 1751896285}
   songNumber: 0
   prevSongNumber: 0
+--- !u!114 &1751896287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751896282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c299ac1d6cd70e438d2b235d790ebd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blackOut: {fileID: 64991878}
+  light: {fileID: 705507993}
+  isSetOff: 0
+  setOff: 0
+  fadeDuration: 2
 --- !u!114 &1786374826 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2843356213780648600, guid: a44ad22d4e77fb246be319ca52632fe9, type: 3}
@@ -4166,7 +4187,7 @@ GameObject:
   - component: {fileID: 2063177273}
   - component: {fileID: 2063177275}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: RedBull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -11,12 +11,19 @@ public class ChatController : MonoBehaviour
 {
     
     public Image[] texts;
+    public Image donation;
     
     public int currentSideTask = -1;
     public int nextSideTaskIn;
+
+    public GameObject donationObject;
     
     public int currentRandomEvent = -1;
     public int nextRandomEventIn;
+
+    public int nextDonationIn = -1;
+    private int donationIndex = -1;
+    private int donated;
     
     private float random;
     private int sideTaskIndex = -1;
@@ -31,32 +38,63 @@ public class ChatController : MonoBehaviour
     private List<string> messages;
     private List<string> fanMessages = new List<string>
     {
-        "Hello, streamer!",
+        "Hello, I am new to the stream!",
         "I love this content!",
-        "Great gameplay!",
-        "Can you play my favorite game?",
-        "Greetings from [ViewerName]!",
+        "Great relax gameplay!",
+        "Can you play my favorite game? This game!",
+        "Greetings from DevTeam!",
         "This stream is awesome!",
-        "Keep up the good work!",
+        "Keep up the good work and stay relaxed!",
         "You're my favorite streamer!",
         "Hello from Slovakia!",
         "I just subscribed!",
+        "Remember to stay relaxed",
+        "Happy to be here",
+        "Will you come to the next GameJam?",
+        "Ahhh, good times",
+        "I am watching from the day one !!!",
+        ":):)",
+        "Planning a game night, any recommendations?",
+        "Like this game ? Tell the devs",
+        "I don't know what to write here",
+        "Just joined the notification squad!",
+        "Curious, what's your all-time favorite game?",
+        "Quick break to say hi, back to work now!",
+        "Sending positive vibes to the chat!",
+        "Just caught the stream – what did I miss?",
+        "Love the details !",
+        "Secret message from progammer who wrote this",
+        "I am very tired, but need to program this game",
+        "Having Fun!",
+        "Chill out",
+        "Just spamming here",
+        "So tired, I don't know what am I writing",
+        "NIiiiiiice!",
+        "Woaaaah, cool !",
+        "How long did you sleep ?",
+        "What are you writing ?",
+        "Where are the markers from ?",
+        "I am going! Bye now !",
+        "I have a school tommorow, must do presentation:/",
+        "Nice Desk!",
+        "You have a really nice setup!",
+        "If you notice this! Tell the creators!",
     };
 
     private List<(List<string> messages, int weight)> sideTaskMessages = new List<(List<string>, int)>
     {
-        (new List<string> {"Aren't you thirsty?"}, 1),
-        (new List<string> {"Can you turn the volume up?"}, 1),
-        (new List<string> {"Can you turn the volume down?"}, 1),
-        (new List<string> {"This song sucks, give us another one"}, 4),
-        (new List<string> {"Can you play that last song again?"}, 1),
-        (new List<string> {"Can you start the song from the beginning?"}, 1),
-        (new List<string> {"That flower looks sad, give it some water!"}, 1),
-        (new List<string> {"Notice me senpai!"}, 15),
-        (new List<string> {"Pet the cat!"}, 3)
+        (new List<string> {"Aren't you thirsty?", "Don't forget to hydrate!", "Remember to drink some water!"}, 1),
+        (new List<string> {"Can you turn the volume up?", "Turn the music up!"}, 1),
+        (new List<string> {"Can you turn the volume down?", "Could you lower the volume?"}, 1),
+        (new List<string> {"This song is bad, give us another one", "Not feeling it—new song, please.", "This song? Nah. Another one?", "Not vibing with this. New one?"}, 1),
+        (new List<string> {"Can you play that last song again?", "Could you give us that last song again?", "Replay the last track, if you can."}, 1),
+        (new List<string> {"Can you start the song from the beginning?", "Give us that song from the start!", "Play it from the beginning again!"}, 1),
+        (new List<string> {"That flower looks sad, give it some water!", "Notice the sad flower? Time to hydrate it!", "Spotting a sad flower; show it some water care!"}, 1),
+        (new List<string> {"Notice me senpai!", "Could you give my message a thumbs up? It's my BDay!", "Do you even read the chat?"}, 1),
+        //(new List<string> {"Pet the cat!", "Show your cat some love!"}, 1)
     };
 
-    private int totalWeights = 28;
+    private int totalWeights = 9;
 
     public static ChatController instance;
 
@@ -85,7 +123,6 @@ public class ChatController : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("sti " + sideTaskIndex);
             // when side task is no longer in chat, reset
             if (sideTaskIndex >= 5 || currentSideTask == -1)
             {
@@ -96,7 +133,7 @@ public class ChatController : MonoBehaviour
             // if side task is not set, generate with probability
             if (currentSideTask < 0)
             {
-                if (nextSideTaskIn == 0)
+                if (nextSideTaskIn == 0 && donationIndex == -1)
                 {
                     currentSideTask = Random.Range(0, totalWeights);
                     int currWeight = 0;
@@ -117,7 +154,10 @@ public class ChatController : MonoBehaviour
                 else
                 {
                     messages.Insert(0, GetRandomFanWord());
-                    nextSideTaskIn -= 1;
+                    if (donationIndex == -1)
+                    {
+                        nextSideTaskIn -= 1;   
+                    }
                 }
             }
             // if side task is set, just do message
@@ -139,6 +179,20 @@ public class ChatController : MonoBehaviour
                 messages.RemoveAt(6);
             }
             
+            // donations handling
+            if (nextDonationIn == 0)
+            {
+                donated = Random.Range(30, 51);
+                DonationsCount.AddDonation(donated);
+                donationObject.GetComponent<DonationController>().StartC("Donation: You have received $" + donated + " for listening to fans!");
+                donationIndex = 0;
+                nextDonationIn = -1;
+            }
+            else if (nextDonationIn > 0)
+            {
+                nextDonationIn -= 1;
+            }
+
             // set texts and color of all message bubbles
             for (int i=0; i<messages.Count; i++)
             {
@@ -152,6 +206,18 @@ public class ChatController : MonoBehaviour
                     texts[i].color = Color.white;
                 }
             }
+            
+            if (donationIndex >= 0 && donationIndex < 6)
+            {
+                texts[donationIndex].color = Color.magenta;
+                texts[donationIndex].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text =
+                    "Donation: You have received $" + donated;
+                donationIndex += 1;
+            }
+            else
+            {
+                donationIndex = -1;
+            }
 
             // if no random event is active
             if (currentRandomEvent < 0)
@@ -159,7 +225,7 @@ public class ChatController : MonoBehaviour
                 // if its time to trigger random event, generate it
                 if (nextRandomEventIn == 0)
                 {
-                    currentRandomEvent = Random.Range(0, 1);
+                    currentRandomEvent = Random.Range(4, 7);
                     nextRandomEventIn = Random.Range(minNextRandomEvent, maxNextRandomEvent); 
                 }
                 else
@@ -168,16 +234,21 @@ public class ChatController : MonoBehaviour
                 }
             }
 
-            if (ViewersCount.viewersCount > 200)
+            if (ViewersCount.viewersCount > 1000)
             {
-                random = Random.Range(1.0f, 1.5f); // next message time
+                random = Random.Range(1.5f, 2.0f); // next message time
             }
             else
             {
-                random = Random.Range(1.0f, 2.5f); // next message time   
+                random = Random.Range(1.0f, 2.0f); // next message time   
             }
             yield return new WaitForSeconds(random);
         }
+    }
+
+    public void CompleteTask()
+    {
+        texts[sideTaskIndex].color = Color.white;
     }
     
     string GetRandomFanWord()
@@ -190,5 +261,10 @@ public class ChatController : MonoBehaviour
         }
         lastMessage = randomIndex;
         return fanMessages[randomIndex];
+    }
+
+    public void setDonation()
+    {
+        nextDonationIn = Random.Range(2, 4);
     }
 }

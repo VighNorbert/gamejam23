@@ -24,6 +24,12 @@ public class Paper : MonoBehaviour
 
     private bool _colorChanged = false;
     private Pen _colorRemoved = null;
+
+    private bool lastWasBr = false;
+
+    private int combo = 1;
+
+    private bool textComplete = false;
     
     void Start()
     {
@@ -57,9 +63,14 @@ public class Paper : MonoBehaviour
                 continue;
             }
 
-            if (!isColored && Random.Range(0, 10) < 3 && !decoloredNow)
+            if (!isColored && Random.Range(0, 10) < 2 && !decoloredNow)
             {
-                correctWords[i] = "<color=" + gm.pens[Random.Range(0, gm.pens.Length)].color + ">" + word;
+                int r = 5000;
+                while (r >= gm.pens.Length || !gm.pens[r].gameObject.activeSelf)
+                {
+                    r = Random.Range(0, gm.pens.Length);
+                }
+                correctWords[i] = "<color=" + gm.pens[r].color + ">" + word;
                 isColored = true;
             }
             else if (isColored && Random.Range(0, 10) < 7)
@@ -85,84 +96,102 @@ public class Paper : MonoBehaviour
         }
         paperTextTMP.text = templateCorrect;
         
-        Debug.Log("Next char:" + GetNextChar() + " Correct: " + IsCorrectColor());
-        MoveHand();
+        // MoveHand();
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            
-            if (Physics.Raycast(ray, out hit))
+        // TODO highlights
+        // if (Input.GetMouseButtonDown(0))
+        // {
+        //     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //     RaycastHit hit;
+        //     
+        //     if (Physics.Raycast(ray, out hit))
+        //     {
+        //         if (_words.Contains(hit.collider.gameObject))
+        //         {
+        //             GameObject word = hit.collider.gameObject;
+        //             word.GetComponent<MeshRenderer>().enabled = true;
+        //         }
+        //     }
+        // }
+
+        if (gm.isPenAvailable) {
+            string nextChar = GetNextChar();
+        
+        
+            if (nextChar == " " && Input.GetKeyDown("space"))
             {
-                if (_words.Contains(hit.collider.gameObject))
+                // add letter
+                if (_colorRemoved)
                 {
-                    GameObject word = hit.collider.gameObject;
-                    word.GetComponent<MeshRenderer>().enabled = true;
+                    writtenText += _colorRemoved.GetTerminationString();
+                    _colorRemoved = null;
                 }
-            }
-        }
-
-        string nextChar = GetNextChar();
-        
-        
-        
-        if (nextChar == " " && Input.GetKeyDown("space"))
-        {
-            // add letter
-            if (_colorRemoved)
-            {
-                writtenText += _colorRemoved.GetTerminationString();
-                _colorRemoved = null;
-            }
-            if (_colorChanged)
-            {
-                writtenText += nextColor.GetDefinitionString();
-                _colorChanged = false;
-            }
-            // add space
-            writtenText += " ";
-            writtenTextTMP.SetText(writtenText + " ");
-            writtenProgress += 1;
-            MoveHand();
-            Debug.Log("Next char:" + GetNextChar() + " Correct: " + IsCorrectColor());
-        }
-        else if (nextChar != " " && Input.GetKeyDown(nextChar.ToLower()) && IsCorrectColor())
-        {
-            // add letter
-            if (_colorRemoved)
-            {
-                writtenText += _colorRemoved.GetTerminationString();
-                _colorRemoved = null;
-            }
-            if (_colorChanged)
-            {
-                writtenText += nextColor.GetDefinitionString();
-                _colorChanged = false;
-            }
-
-            if (writtenText.Length >= 4 && writtenText.Substring(writtenText.Length - 4, 4) == "br> ")
-            {
-                writtenText = writtenText.Substring(0, writtenText.Length - 1);
-            }
-            writtenText += nextChar;
-            writtenTextTMP.SetText(writtenText + " ");
-            writtenProgress += 1;
-            MoveHand();
-            Debug.Log("Next char:" + GetNextChar() + " Correct: " + IsCorrectColor());
-        }
-        else if (nextChar != " " && Input.anyKeyDown)
-        {
-            for (KeyCode key = KeyCode.A; key <= KeyCode.Z; key++)
-            {
-                if (Input.GetKeyDown(key))
+                if (_colorChanged)
                 {
-                    // bad character
-                    Debug.Log("tak si kokot asi");
-                    break; // Exit the loop after the first match
+                    writtenText += nextColor.GetDefinitionString();
+                    _colorChanged = false;
+                }
+                // add space
+                writtenText += " ";
+                writtenTextTMP.SetText(writtenText + " ");
+                writtenProgress += 1;
+                MoveHand();
+            }
+            else if (nextChar != " " && Input.GetKeyDown(nextChar.ToLower()) && IsCorrectColor())
+            {
+                // add letter
+                if (_colorRemoved)
+                {
+                    writtenText += _colorRemoved.GetTerminationString();
+                    _colorRemoved = null;
+                }
+                if (_colorChanged)
+                {
+                    writtenText += nextColor.GetDefinitionString();
+                    _colorChanged = false;
+                }
+
+                if (writtenText.Length >= 4 && writtenText.Substring(writtenText.Length - 4, 4) == "br> ")
+                {
+                    writtenText = writtenText.Substring(0, writtenText.Length - 1);
+                }
+                writtenText += nextChar;
+                writtenTextTMP.SetText(writtenText + " ");
+                combo += 1;
+                ViewersCount.AddViewers(combo * 10);
+                if (!lastWasBr)
+                {
+                    gm.handAnimator.SetTrigger("Write");
+                }
+
+                gm.isPenAvailable = false;
+                writtenProgress += 1;
+                MoveHand();
+            }
+            else if (nextChar != " " && Input.anyKeyDown)
+            {
+                for (KeyCode key = KeyCode.A; key <= KeyCode.Z; key++)
+                {
+                    if (Input.GetKeyDown(key))
+                    {
+                        if (!IsCorrectColor())
+                        {
+                            if (nextColor)
+                            {
+                                StartCoroutine(nextColor.Shake());
+                            }
+                            else
+                            {
+                                StartCoroutine(gm.defaultPen.Shake());   
+                            }
+                        }
+                        // bad character
+                        combo = 1;
+                        break; // Exit the loop after the first match
+                    }
                 }
             }
         }
@@ -176,6 +205,15 @@ public class Paper : MonoBehaviour
 
     string GetNextChar()
     {
+        if (writtenProgress >= correctPaperText.Length)
+        {
+            if (!textComplete)
+            {
+                textComplete = true;
+                gm.SelectNextPaper();
+            }
+            return " ";
+        }
         if (correctPaperText[writtenProgress] == '<')
         {
             if (correctPaperText.Substring(writtenProgress, 4) == "<br>")
@@ -184,6 +222,7 @@ public class Paper : MonoBehaviour
                 writtenTextTMP.SetText(writtenText + " ");
                 writtenProgress += 4;
                 MoveHand();
+                lastWasBr = true;
             }
             if (correctPaperText.Substring(writtenProgress, 3) == "<b>")
             {
@@ -224,18 +263,29 @@ public class Paper : MonoBehaviour
                 writtenProgress += 8;
             }
         }
+        if (writtenProgress >= correctPaperText.Length)
+        {
+            if (!textComplete)
+            {
+                textComplete = true;
+                gm.SelectNextPaper();
+            }
+            return " ";
+        }
 
         return correctPaperText[writtenProgress].ToString();
     }
 
     void MoveHand()
     {
-        if (writtenTextTMP.text.Length == 0)
+        TMP_TextInfo textInfo = writtenTextTMP.textInfo;
+        if (textInfo.characterCount == 0)
         {
-            gm.hand.transform.position = new Vector3(0, 0, 0);
+            gm.handAnimator.SetTrigger("EndWriting");
+            Debug.Log("Pen available");
+            gm.isPenAvailable = true;
             return;
         }
-        TMP_TextInfo textInfo = writtenTextTMP.textInfo;
         TMP_CharacterInfo lastCharacterInfo = textInfo.characterInfo[textInfo.characterCount - 1];
         
 
@@ -245,7 +295,10 @@ public class Paper : MonoBehaviour
 
         // Convert local position to world position
         Vector3 rightSideWorldPosition = writtenTextTMP.transform.TransformPoint(rightSideLocalPosition) + new Vector3(0.1f, 0f, 0f);
+
+        gm.pointer.transform.position = rightSideWorldPosition;
         
-        gm.hand.transform.position = rightSideWorldPosition;
+        StartCoroutine(gm.AnimateWrite(rightSideWorldPosition, !lastWasBr));
+        lastWasBr = false;
     }
 }

@@ -260,8 +260,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 829108325208885946}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.32, y: 0.001, z: 2.531}
-  m_LocalScale: {x: 0.24529842, y: 1, z: 0.04176133}
+  m_LocalPosition: {x: -3.15, y: 0.001, z: 2.531}
+  m_LocalScale: {x: 0.2854783, y: 1, z: 0.04176133}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2961472547943559936}
@@ -441,7 +441,7 @@ GameObject:
   - component: {fileID: 4110590951551985303}
   - component: {fileID: 5509852322231347390}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Text (TMP) faded
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -496,7 +496,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: As the first rays of the <b><color=#000000>morning sun</color></b> filtered
-    through the dense canopy of <b><color=#000000>ancient trees</color></b>, the
+    through the dense canopy of <b><color=#000000>ancient trees,</color></b> the
     forest came to life with a symphony of chirping birds and <b><color=#000000>rustling
     leaves.</color></b> The forest floor was a carpet of lush, emerald moss, soft
     to the touch and cool against the feet of <b><color=#000000>anyone</color></b>
@@ -509,8 +509,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4289967027
-  m_fontColor: {r: 0.7019608, g: 0.7019608, b: 0.7019608, a: 1}
+    rgba: 4291019715
+  m_fontColor: {r: 0.764151, g: 0.764151, b: 0.764151, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -894,8 +894,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1707924741134544077}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.79, y: 0.001, z: 3.697}
-  m_LocalScale: {x: 0.23868923, y: 1, z: 0.04176133}
+  m_LocalPosition: {x: 1.5, y: 0.001, z: 3.697}
+  m_LocalScale: {x: 0.25062367, y: 1, z: 0.04176133}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2961472547943559936}
@@ -1384,7 +1384,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2434099606521182266}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.36, y: 0.001, z: -1.52}
+  m_LocalPosition: {x: 2.73, y: 0.001, z: -1.52}
   m_LocalScale: {x: 0.12369585, y: 1, z: 0.04176133}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1874,8 +1874,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3411816786367224513}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.4, y: 0.001, z: -1.53}
-  m_LocalScale: {x: 0.21445404, y: 1, z: 0.04176133}
+  m_LocalPosition: {x: 0.56, y: 0.001, z: -1.53}
+  m_LocalScale: {x: 0.2597058, y: 1, z: 0.04176133}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2961472547943559936}
@@ -1972,8 +1972,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3455854978083082838}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.27, y: 0.001, z: 0.78}
-  m_LocalScale: {x: 0.10776934, y: 1, z: 0.04176133}
+  m_LocalPosition: {x: 3.29, y: 0.001, z: 0.78}
+  m_LocalScale: {x: 0.12261996, y: 1, z: 0.04176133}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2961472547943559936}
@@ -2364,8 +2364,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3990676554091508696}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.11, y: 0.001, z: 2.519}
-  m_LocalScale: {x: 0.16925052, y: 1, z: 0.04176133}
+  m_LocalPosition: {x: -0.49, y: 0.001, z: 2.519}
+  m_LocalScale: {x: 0.19467194, y: 1, z: 0.04176133}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2961472547943559936}
@@ -2854,8 +2854,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4633943660542454578}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.39, y: 0.001, z: 0.79}
-  m_LocalScale: {x: 0.18282199, y: 1, z: 0.04176133}
+  m_LocalPosition: {x: 1.23, y: 0.001, z: 0.79}
+  m_LocalScale: {x: 0.23780732, y: 1, z: 0.04176133}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2961472547943559936}
@@ -3050,8 +3050,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5083896200383646447}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.26, y: 0.001, z: 3.699}
-  m_LocalScale: {x: 0.259204, y: 1, z: 0.04176133}
+  m_LocalPosition: {x: -3.04, y: 0.001, z: 3.699}
+  m_LocalScale: {x: 0.30515602, y: 1, z: 0.04176133}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2961472547943559936}
@@ -3924,7 +3924,7 @@ MonoBehaviour:
   wordsContainer: {fileID: 7049774519355669957}
   _words: []
   correctPaperText: As the first rays of the <br><b><color=#000000>morning sun</color></b>
-    filtered <br>through the dense canopy of <br><b><color=#000000>ancient trees</color></b>,
+    filtered <br>through the dense canopy of <br><b><color=#000000>ancient trees,</color></b>
     the forest <br>came to life with a <br>symphony of chirping birds <br>and <b><color=#000000>rustling
     leaves.</color></b> The <br>forest floor was a carpet of <br>lush, emerald moss,
     soft to <br>the touch and cool against <br>the feet of <b><color=#000000>anyone</color></b>
@@ -4931,8 +4931,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7658453978232869876}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2, y: 0.001, z: 0.8}
-  m_LocalScale: {x: 0.25789726, y: 1, z: 0.04176133}
+  m_LocalPosition: {x: -1.8, y: 0.001, z: 0.8}
+  m_LocalScale: {x: 0.29609317, y: 1, z: 0.04176133}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2961472547943559936}
@@ -5127,7 +5127,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7859968492355411964}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.48, y: 0.001, z: 2.523}
+  m_LocalPosition: {x: 3.32, y: 0.001, z: 2.523}
   m_LocalScale: {x: 0.21602924, y: 1, z: 0.04176133}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5617,7 +5617,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8243287754510848133}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.67, y: 0.001, z: 2.526}
+  m_LocalPosition: {x: 1.49, y: 0.001, z: 2.526}
   m_LocalScale: {x: 0.108434625, y: 1, z: 0.04176133}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6009,8 +6009,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8761473284538304707}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.18, y: 0.001, z: 3.692}
-  m_LocalScale: {x: 0.108554274, y: 1, z: 0.04176133}
+  m_LocalPosition: {x: -0.63, y: 0.001, z: 3.692}
+  m_LocalScale: {x: 0.1298818, y: 1, z: 0.04176133}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2961472547943559936}
