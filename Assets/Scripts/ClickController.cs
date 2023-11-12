@@ -79,7 +79,14 @@ public class ClickController : MonoBehaviour
                             {
                                 spln += 1;
                                 ChatController.instance.currentSideTask = -1;
-                                ViewersCount.AddViewers(Random.Range(5, 11) * spln);
+                                if (spln > 20)
+                                {
+                                    ViewersCount.AddViewers(Random.Range(5, 11));    
+                                }
+                                else
+                                {
+                                    ViewersCount.AddViewers(Random.Range(5, 11) * spln);   
+                                }
                                 DonationsCount.AddDonation(Random.Range(5, 30));
 
                             }
@@ -137,7 +144,14 @@ public class ClickController : MonoBehaviour
         ChatController.instance.currentSideTask = -1;
         ChatController.instance.setDonation();
         spln += 1;
-        ViewersCount.AddViewers(Random.Range(5, 21) * spln);
+        if (spln > 20)
+        {
+            ViewersCount.AddViewers(Random.Range(5, 11));    
+        }
+        else
+        {
+            ViewersCount.AddViewers(Random.Range(5, 11) * spln);
+        }
     }
 
     void CompleteRandomEvent()
@@ -145,7 +159,14 @@ public class ClickController : MonoBehaviour
         ChatController.instance.currentRandomEvent = -1;
         ChatController.instance.setDonation();
         spln += 1;
-        ViewersCount.AddViewers(Random.Range(5, 21) * spln);
+        if (spln > 20)
+        {
+            ViewersCount.AddViewers(Random.Range(5, 11));    
+        }
+        else
+        {
+            ViewersCount.AddViewers(Random.Range(5, 11) * spln);   
+        }
     }
 
     IEnumerator ChangeBoolAfterDelay()
