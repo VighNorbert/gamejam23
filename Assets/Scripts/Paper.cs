@@ -77,7 +77,7 @@ public class Paper : MonoBehaviour
                 correctWords[i] = "<color=" + gm.pens[r].color + ">" + word;
                 isColored = true;
             }
-            else if (isColored && Random.Range(0, 10) < 7)
+            else if (isColored && Random.Range(0, 10) < 5)
             {
                 correctWords[i] = word + "</color>";
                 isColored = false;
