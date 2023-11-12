@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -35,6 +37,9 @@ public class GameManager : MonoBehaviour
     public GameObject pointer;
 
     public DonationController dc;
+
+    private bool shaking;
+    
     
     void Start()
     {
@@ -357,4 +362,33 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(0.001f);
         }
     }
+    
+    // public IEnumerator Shake()
+    // {
+    //     Debug.Log("trying to shake");
+    //     if (!shaking)
+    //     {
+    //         Debug.Log("shaking");
+    //         shaking = true;
+    //         Quaternion originalRotation = transform.rotation;
+    //         Vector3 originalPosition = transform.position;
+    //         float elapsed = 0.0f;
+    //
+    //         while (elapsed < .5f)
+    //         {
+    //             float x = (float) Math.Sin(Time.time * 50f);
+    //
+    //             transform.rotation = originalRotation * Quaternion.Euler(0, x / 10f, 0);
+    //             
+    //             // transform.position = new Vector3(originalPosition.x, originalPosition.y - x / 200f, originalPosition.z);
+    //
+    //             elapsed += Time.deltaTime;
+    //             yield return null;
+    //         }
+    //
+    //         transform.rotation = originalRotation;
+    //         transform.position = originalPosition;
+    //         shaking = false;
+    //     }
+    // }
 }
