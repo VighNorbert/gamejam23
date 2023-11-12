@@ -17,6 +17,7 @@ public class ChatController : MonoBehaviour
     public int nextSideTaskIn;
 
     public GameObject donationObject;
+    public GameObject notificationObject;
     
     public int currentRandomEvent = -1;
     public int nextRandomEventIn;
@@ -52,30 +53,30 @@ public class ChatController : MonoBehaviour
         "Happy to be here",
         "Will you come to the next GameJam?",
         "Ahhh, good times",
-        "I am watching from the day one !!!",
+        "I am watching from the day one!!!",
         ":):)",
         "Planning a game night, any recommendations?",
-        "Like this game ? Tell the devs",
+        "Like this game? Tell the devs",
         "I don't know what to write here",
         "Just joined the notification squad!",
-        "Curious, what's your all, time favorite game?",
+        "Curious, what's your all-time favorite game?",
         "Quick break to say hi, back to work now!",
         "Sending positive vibes to the chat!",
         "Just caught the stream, what did I miss?",
-        "Love the details !",
-        "Secret message from progammer who wrote this",
+        "Love the details!",
+        "Secret message from programmer who wrote this",
         "I am very tired, but need to program this game",
         "Having Fun!",
         "Chill out",
         "Just spamming here",
         "So tired, I don't know what am I writing",
-        "NIiiiiiice!",
+        "Niiiiiiice!",
         "Woaaaah, cool !",
-        "How long did you sleep ?",
-        "What are you writing ?",
-        "Where are the markers from ?",
-        "I am going! Bye now !",
-        "I have a school tommorow, must do presentation:/",
+        "How long did you sleep?",
+        "What are you writing?",
+        "Where are the markers from?",
+        "I am going! Bye now!",
+        "I have school tomorrow, must do presentation:/",
         "Nice Desk!",
         "You have a really nice setup!",
         "If you notice this! Tell the creators!",
@@ -149,6 +150,7 @@ public class ChatController : MonoBehaviour
                         {
                             int message = Random.Range(0, sideTaskMessages[i].messages.Count);
                             messages.Insert(0, sideTaskMessages[i].messages[message]);
+                            notificationObject.GetComponent<NotificationController>().StartC(sideTaskMessages[i].messages[message]);
                             currentSideTask = i;
                             sideTaskIndex = 0;
                             break;

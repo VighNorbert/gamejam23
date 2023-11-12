@@ -170,7 +170,10 @@ public class Paper : MonoBehaviour
                 writtenText += nextChar;
                 writtenTextTMP.SetText(writtenText + " ");
                 combo += 1;
-                ViewersCount.AddViewers(combo * 10);
+                if (writtenText.Length % 5 == 4)
+                {
+                    ViewersCount.AddViewers(combo * 2);   
+                }
                 if (!lastWasBr)
                 {
                     gm.handAnimator.SetTrigger("Write");
