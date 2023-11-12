@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -16,6 +17,7 @@ public class Pen : MonoBehaviour
     public bool isMarker;
     public bool isForHighlighting;
     public Material mat;
+    private bool shaking;
     
     void Start()
     {
@@ -56,6 +58,29 @@ public class Pen : MonoBehaviour
         else
         {
             return "</color>";
+        }
+    }
+
+    public IEnumerator Shake()
+    {
+        if (!shaking)
+        {
+            shaking = true;
+            Quaternion originalRotation = transform.rotation;
+            float elapsed = 0.0f;
+
+            while (elapsed < .5f)
+            {
+                float y = (float) Math.Sin(Time.time * 50f) * 2f;
+
+                transform.rotation = originalRotation * Quaternion.Euler(0, y, 0);
+
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+
+            transform.rotation = originalRotation;
+            shaking = false;
         }
     }
     

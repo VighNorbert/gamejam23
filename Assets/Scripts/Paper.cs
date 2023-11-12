@@ -63,9 +63,14 @@ public class Paper : MonoBehaviour
                 continue;
             }
 
-            if (!isColored && Random.Range(0, 10) < 3 && !decoloredNow)
+            if (!isColored && Random.Range(0, 10) < 2 && !decoloredNow)
             {
-                correctWords[i] = "<color=" + gm.pens[Random.Range(0, gm.pens.Length)].color + ">" + word;
+                int r = 5000;
+                while (r >= gm.pens.Length || !gm.pens[r].gameObject.activeSelf)
+                {
+                    r = Random.Range(0, gm.pens.Length);
+                }
+                correctWords[i] = "<color=" + gm.pens[r].color + ">" + word;
                 isColored = true;
             }
             else if (isColored && Random.Range(0, 10) < 7)
@@ -96,20 +101,21 @@ public class Paper : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (_words.Contains(hit.collider.gameObject))
-                {
-                    GameObject word = hit.collider.gameObject;
-                    word.GetComponent<MeshRenderer>().enabled = true;
-                }
-            }
-        }
+        // TODO highlights
+        // if (Input.GetMouseButtonDown(0))
+        // {
+        //     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //     RaycastHit hit;
+        //     
+        //     if (Physics.Raycast(ray, out hit))
+        //     {
+        //         if (_words.Contains(hit.collider.gameObject))
+        //         {
+        //             GameObject word = hit.collider.gameObject;
+        //             word.GetComponent<MeshRenderer>().enabled = true;
+        //         }
+        //     }
+        // }
 
         if (gm.isPenAvailable) {
             string nextChar = GetNextChar();
@@ -171,6 +177,17 @@ public class Paper : MonoBehaviour
                 {
                     if (Input.GetKeyDown(key))
                     {
+                        if (!IsCorrectColor())
+                        {
+                            if (nextColor)
+                            {
+                                StartCoroutine(nextColor.Shake());
+                            }
+                            else
+                            {
+                                StartCoroutine(gm.defaultPen.Shake());   
+                            }
+                        }
                         // bad character
                         combo = 1;
                         break; // Exit the loop after the first match
@@ -278,6 +295,8 @@ public class Paper : MonoBehaviour
 
         // Convert local position to world position
         Vector3 rightSideWorldPosition = writtenTextTMP.transform.TransformPoint(rightSideLocalPosition) + new Vector3(0.1f, 0f, 0f);
+
+        gm.pointer.transform.position = rightSideWorldPosition;
         
         StartCoroutine(gm.AnimateWrite(rightSideWorldPosition, !lastWasBr));
         lastWasBr = false;

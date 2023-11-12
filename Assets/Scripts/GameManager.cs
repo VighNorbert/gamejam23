@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     public int paperIndex = 0;
 
     private Paper _previousPaper;
+
+    public GameObject pointer;
     
     void Start()
     {
@@ -53,25 +55,25 @@ public class GameManager : MonoBehaviour
     {
         if (isPenAvailable)
         {
-            if (Input.GetKeyDown("1") && !selectedPen.Equals(defaultPen))
+            if (Input.GetKeyDown("1") && !selectedPen.Equals(markers[0]))
+            {
+                ChangePen(markers[0]);
+            }
+            if (Input.GetKeyDown("2") && !selectedPen.Equals(defaultPen))
             {
                 ChangePen(defaultPen);
             }
-            else if (Input.GetKeyDown("2") && !selectedPen.Equals(pens[0]))
+            else if (Input.GetKeyDown("3") && !selectedPen.Equals(pens[0]))
             {
                 ChangePen(pens[0]);
             }
-            else if (Input.GetKeyDown("3") && !selectedPen.Equals(pens[1]))
+            else if (Input.GetKeyDown("4") && pens[1].enabled && !selectedPen.Equals(pens[1]))
             {
                 ChangePen(pens[1]);
             }
-            else if (Input.GetKeyDown("4") && !selectedPen.Equals(pens[2]))
+            else if (Input.GetKeyDown("5") && pens[2].enabled && !selectedPen.Equals(pens[2]))
             {
                 ChangePen(pens[2]);
-            }
-            else if (Input.GetKeyDown("5") && !selectedPen.Equals(markers[0]))
-            {
-                ChangePen(markers[0]);
             }
         }
     }
@@ -121,12 +123,13 @@ public class GameManager : MonoBehaviour
         isPenAvailable = false;
         
         selectedPen = pen;
-        StartCoroutine(PenSelector());
+        StartCoroutine(PenSelector(true));
     }
     
-    IEnumerator PenSelector()
+    IEnumerator PenSelector(bool sendPickup = false)
     {
-        handAnimator.SetTrigger("PickUpPen");
+        Debug.Log("Pickup");
+        if (sendPickup) handAnimator.SetTrigger("PickUpPen");
         Vector3 startPos = hand.transform.position;
         float total = Vector3.Distance(startPos, selectedPen.transform.position) * .6f;
         float start = Time.time;
@@ -178,6 +181,7 @@ public class GameManager : MonoBehaviour
 
     public void OnPenPickedUp()
     {
+        if (selectedPen == null) return;
         selectedPen.GetComponentInChildren<MeshRenderer>().enabled = false;
         if (selectedPen.isForWriting)
         {
@@ -223,7 +227,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator AnimateWrite(Vector3 endPosition, bool writing)
     {
         Vector3 startPos = hand.transform.position;
-        float total = writing ? Vector3.Distance(startPos, endPosition) * 5f : Vector3.Distance(startPos, endPosition) * .5f;
+        float total = writing ? Vector3.Distance(startPos, endPosition) * 1f : Vector3.Distance(startPos, endPosition) * .5f;
 
         float start = Time.time;
         while (true)
