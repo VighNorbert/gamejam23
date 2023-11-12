@@ -197,6 +197,10 @@ public class Paper : MonoBehaviour
                                 StartCoroutine(gm.defaultPen.Shake());   
                             }
                         }
+                        else
+                        {
+                            gm.handAnimator.SetTrigger("Shake");
+                        }
                         // bad character
                         combo = 1;
                         break; // Exit the loop after the first match
