@@ -479,7 +479,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1749929332}
         m_TargetAssemblyTypeName: IntroSceneController, Assembly-CSharp
-        m_MethodName: Tutorial
+        m_MethodName: Back
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

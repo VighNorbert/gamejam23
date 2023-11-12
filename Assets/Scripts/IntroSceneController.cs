@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class IntroSceneController : MonoBehaviour
 {
+    public GameObject tutorial;
+    public GameObject intro;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +26,13 @@ public class IntroSceneController : MonoBehaviour
     }
     public void Tutorial()
     {
-        SceneManager.LoadScene(sceneBuildIndex: 2);
+        intro.SetActive(false);
+        tutorial.SetActive(true);
+    }
+
+    public void Back()
+    {
+        intro.SetActive(true);
+        tutorial.SetActive(false);
     }
 }
