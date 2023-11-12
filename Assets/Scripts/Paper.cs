@@ -61,6 +61,7 @@ public class Paper : MonoBehaviour
                 if (isColored)
                 {
                     correctWords[i] = "</color>" + word;
+                    isColored = false;
                 }
                 isBold = true;
                 decoloredNow = false;

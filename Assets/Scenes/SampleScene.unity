@@ -5312,8 +5312,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   availablePapers:
   - {fileID: 1302755324165455344, guid: 850b2a829a801c24eb6a414096f1a023, type: 3}
+  - {fileID: 1302755324165455344, guid: 850b2a829a801c24eb6a414096f1a023, type: 3}
   - {fileID: 1302755324165455344, guid: ecc47d65f4cb0c0419f187202fb0d0c1, type: 3}
-  - {fileID: 1302755324165455344, guid: b9c9242011a8b474084567b5a64f3fc2, type: 3}
   - {fileID: 3657386456292019076, guid: c6ce68419393d3b4890fc21ba9919a2b, type: 3}
   - {fileID: 768531651233227001, guid: bb262ccc684044d4c8150c781ac80c5a, type: 3}
   - {fileID: 1302755324165455344, guid: 8fa896e15d9be75439575dac13dfaa08, type: 3}
