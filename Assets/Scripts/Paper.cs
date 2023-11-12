@@ -170,6 +170,7 @@ public class Paper : MonoBehaviour
                 writtenText += nextChar;
                 writtenTextTMP.SetText(writtenText + " ");
                 combo += 1;
+                WritingSound.instance.playWriting();
                 if (writtenText.Length % 5 == 4)
                 {
                     ViewersCount.AddViewers(combo * 2);   
@@ -191,6 +192,7 @@ public class Paper : MonoBehaviour
                     {
                         if (!IsCorrectColor())
                         {
+                            SFXManager.instance.playIncorrect();
                             if (nextColor)
                             {
                                 StartCoroutine(nextColor.Shake());
@@ -206,6 +208,7 @@ public class Paper : MonoBehaviour
                         }
                         // bad character
                         combo = 1;
+                        SFXManager.instance.playIncorrect();
                         break; // Exit the loop after the first match
                     }
                 }

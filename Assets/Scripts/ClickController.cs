@@ -45,6 +45,7 @@ public class ClickController : MonoBehaviour
                         //Change cursor
                         if (ChatController.instance.currentSideTask == 6)
                         {
+                            SFXManager.instance.playWatering();
                             CompleteTask();
                         }
                     }
@@ -54,6 +55,7 @@ public class ClickController : MonoBehaviour
                         //Animation
                         if (ChatController.instance.currentSideTask == 0)
                         {
+                            SFXManager.instance.playDrink();
                             CompleteTask();
                         }
                     }
@@ -66,11 +68,13 @@ public class ClickController : MonoBehaviour
                         //blackOut.GetComponent<Image>().color = new Color(blackOut.GetComponent<Image>().color.r, blackOut.GetComponent<Image>().color.g, blackOut.GetComponent<Image>().color.b, 0);
                         if (ChatController.instance.currentSideTask == 0)
                         {
+                            SFXManager.instance.playDrink();
                             CompleteTask();
                         }
                     }
                     else if (hit.collider.gameObject.name == "Left")
                     {
+                        SFXManager.instance.playClick();
                         if (leftTrig)
                         {
                             SoundManager.instance.PreviousSong();
@@ -110,6 +114,7 @@ public class ClickController : MonoBehaviour
                     }
                     else if (hit.collider.gameObject.name == "Right")
                     {
+                        SFXManager.instance.playClick();
                         SoundManager.instance.NextSong();
                         if (ChatController.instance.currentSideTask == 3)
                         {
@@ -119,6 +124,7 @@ public class ClickController : MonoBehaviour
                     }
                     else if (hit.collider.gameObject.name == "Up")
                     {
+                        SFXManager.instance.playClick();
                         SoundManager.instance.HigherVolume();
                         if (ChatController.instance.currentSideTask == 1)
                         {
@@ -127,6 +133,7 @@ public class ClickController : MonoBehaviour
                     }
                     else if (hit.collider.gameObject.name == "Down")
                     {
+                        SFXManager.instance.playClick();
                         SoundManager.instance.LowerVolume();
                         if (ChatController.instance.currentSideTask == 2)
                         {

@@ -28,6 +28,7 @@ public class NotificationController : MonoBehaviour
     {
         if (!alreadyInProgress)
         {
+            SFXManager.instance.playDing();
             alreadyInProgress = true;
             StartCoroutine(Ine(mine));
 
