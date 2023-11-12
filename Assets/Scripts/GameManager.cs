@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
     private Paper _previousPaper;
 
     public GameObject pointer;
+
+    public DonationController dc;
     
     void Start()
     {
@@ -67,11 +69,11 @@ public class GameManager : MonoBehaviour
             {
                 ChangePen(pens[0]);
             }
-            else if (Input.GetKeyDown("4") && pens[1].enabled && !selectedPen.Equals(pens[1]))
+            else if (Input.GetKeyDown("4") && pens[1].gameObject.activeSelf && !selectedPen.Equals(pens[1]))
             {
                 ChangePen(pens[1]);
             }
-            else if (Input.GetKeyDown("5") && pens[2].enabled && !selectedPen.Equals(pens[2]))
+            else if (Input.GetKeyDown("5") && pens[2].gameObject.activeSelf && !selectedPen.Equals(pens[2]))
             {
                 ChangePen(pens[2]);
             }
@@ -98,6 +100,10 @@ public class GameManager : MonoBehaviour
                 Quaternion.identity);
             currentPaper.gm = this;
             paperIndex++;
+            
+            int donated = Random.Range(50, 101);
+            DonationsCount.AddDonation(donated);
+            dc.StartC("Donation: You have received $" + donated + " for completing a page!");
 
             StartCoroutine(PutPenDown());
         }
