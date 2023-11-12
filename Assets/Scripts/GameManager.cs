@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public int views = 0;
 
     public Paper[] availablePapers;
     
@@ -35,6 +34,16 @@ public class GameManager : MonoBehaviour
     
     void Start()
     {
+        defaultPen.gm = this;
+        foreach (Pen p in pens)
+        {
+            p.gm = this;
+        }
+        foreach (Pen p in markers)
+        {
+            p.gm = this;
+        }
+        
         handAnimator = GetComponent<Animator>();
         SelectPen(defaultPen);
         SelectNextPaper();
@@ -92,12 +101,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void ChangePen(Pen pen)
+    public void ChangePen(Pen pen)
     {
-        StartCoroutine(PenChanger(pen));
+        if (isPenAvailable)
+            StartCoroutine(PenChanger(pen));
     }
 
-    void SelectPen(Pen pen)
+    public void SelectPen(Pen pen)
     {
         if (hand.transform.position.Equals(new Vector3(0, 5, -3.47f)))
         {

@@ -8,6 +8,8 @@ using Random = UnityEngine.Random;
 
 public class Pen : MonoBehaviour
 {
+    public GameManager gm;
+    
     public string color;
     public string fadedColor;
     public bool isForWriting;
@@ -22,7 +24,16 @@ public class Pen : MonoBehaviour
 
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            
+            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == gameObject)
+            {
+                gm.ChangePen(this);
+            }
+        }
     }
 
     public string GetDefinitionString()

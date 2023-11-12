@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3503555764368030766}
   - component: {fileID: 7484995528864744128}
+  - component: {fileID: 9084114807345927396}
   m_Layer: 0
   m_Name: BlackPen
   m_TagString: Untagged
@@ -51,6 +52,20 @@ MonoBehaviour:
   isMarker: 0
   isForHighlighting: 0
   mat: {fileID: 0}
+--- !u!136 &9084114807345927396
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165087477917048781}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.01
+  m_Height: 0.25
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &452450170214993297
 PrefabInstance:
   m_ObjectHideFlags: 0
