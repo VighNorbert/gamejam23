@@ -28,6 +28,7 @@ public class DonationController : MonoBehaviour
     {
         if (!alreadyInProgress)
         {
+            SFXManager.instance.playDonation();
             alreadyInProgress = true;
             StartCoroutine(Ine(mine));
 

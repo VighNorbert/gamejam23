@@ -95,12 +95,12 @@ public class ChatController : MonoBehaviour
         (new List<string> {"This song is bad, give us another one", "Not feeling it, new song, please.", "This song? Nah. Another one?", "Not vibing to this song. New one?"}, 4),
         (new List<string> {"Can you play that last song again?", "Could you give us that last song again?", "Replay the last track, if you can."}, 1),
         (new List<string> {"Can you start the song from the beginning?", "Give us that song from the start!", "Play it from the beginning again!"}, 1),
-        (new List<string> {"That flower looks sad, give it some water!", "Notice the sad flower? Time to hydrate it!", "Spotting a sad flower; show it some water care!"}, 1),
+        (new List<string> {"That flower looks sad, give it some water!", "Notice the sad flower? Time to hydrate it!", "Spotting a sad flower; show it some water care!"}, 6),
         (new List<string> {"Notice me senpai! Click on my comment.", "Could you give my message a thumbs up? It's my BDay!", "Do you even read the chat? Click on me!"}, 2),
         //(new List<string> {"Pet the cat!", "Show your cat some love!"}, 1)
     };
 
-    private int totalWeights = 15;
+    private int totalWeights = 20;
 
     public static ChatController instance;
 
