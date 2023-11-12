@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
-    public GameObject pen;
-    public GameObject marker;
-    public GameObject highlighter;
+    public GameObject blackMarker;
+    public GameObject blackPen;
+    public GameObject redPen;
+    public GameObject bluePen;
+    public GameObject greenPen;
     
     // Start is called before the first frame update
     void Start()

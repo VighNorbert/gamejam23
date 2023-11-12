@@ -171,9 +171,11 @@ public class GameManager : MonoBehaviour
     public void OnPenPutDown()
     {
         selectedPen.GetComponentInChildren<MeshRenderer>().enabled = true;
-        hand.pen.SetActive(false);
-        hand.marker.SetActive(false);
-        hand.highlighter.SetActive(false);
+        hand.blackMarker.SetActive(false);
+        hand.blackPen.SetActive(false);
+        hand.redPen.SetActive(false);
+        hand.bluePen.SetActive(false);
+        hand.greenPen.SetActive(false);
         selectedPen = nextPen;
         nextPen = null;
         StartCoroutine(PenSelector());
@@ -183,17 +185,23 @@ public class GameManager : MonoBehaviour
     {
         if (selectedPen == null) return;
         selectedPen.GetComponentInChildren<MeshRenderer>().enabled = false;
-        if (selectedPen.isForWriting)
+        switch (selectedPen.id)
         {
-            hand.pen.SetActive(true);
-        }
-        else if (selectedPen.isMarker)
-        {
-            hand.marker.SetActive(true);
-        }
-        else if (selectedPen.isForHighlighting)
-        {
-            hand.highlighter.SetActive(true);
+            case 0:
+                hand.blackMarker.SetActive(true);
+                break;
+            case 1:
+                hand.blackPen.SetActive(true);
+                break;
+            case 2:
+                hand.redPen.SetActive(true);
+                break;
+            case 3:
+                hand.bluePen.SetActive(true);
+                break;
+            case 4:
+                hand.greenPen.SetActive(true);
+                break;
         }
         
         StartCoroutine(HandReturnToPosition());
@@ -271,9 +279,11 @@ public class GameManager : MonoBehaviour
     {
         
         selectedPen.GetComponentInChildren<MeshRenderer>().enabled = true;
-        hand.pen.SetActive(false);
-        hand.marker.SetActive(false);
-        hand.highlighter.SetActive(false);
+        hand.blackMarker.SetActive(false);
+        hand.blackPen.SetActive(false);
+        hand.redPen.SetActive(false);
+        hand.bluePen.SetActive(false);
+        hand.greenPen.SetActive(false);
         selectedPen = null;
         StartCoroutine(AnimateHandToPaper());
     }
