@@ -8,6 +8,8 @@ public class DonationsCount : MonoBehaviour
     public static float donationsCount = 1;
     public TextMeshProUGUI donationText;
 
+    public GameManager gm;
+    
     public GameObject image;
 
     public float donationGoal = 250;
@@ -27,6 +29,14 @@ public class DonationsCount : MonoBehaviour
         if (donationsCount > donationGoal)
         {
             donationsCount = donationsCount - donationGoal;
+            foreach (Pen pen in gm.pens)
+            {
+                if (!pen.gameObject.activeSelf)
+                {
+                    pen.gameObject.SetActive(true);
+                    break;
+                }
+            }
         }
         image.transform.localScale = new Vector3((float)(donationsCount / donationGoal), image.transform.localScale.y, image.transform.localScale.z);
         donationText.text = donationsCount.ToString() + " $";

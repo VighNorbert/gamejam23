@@ -80,7 +80,7 @@ public class ClickController : MonoBehaviour
                                 spln += 1;
                                 ChatController.instance.currentSideTask = -1;
                                 ViewersCount.AddViewers(Random.Range(5, 11) * spln);
-                                DonationsCount.AddDonation(Random.Range(30, 51));
+                                DonationsCount.AddDonation(Random.Range(5, 30));
 
                             }
                         }

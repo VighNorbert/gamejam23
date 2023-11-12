@@ -61,7 +61,7 @@ public class ChatController : MonoBehaviour
         "Curious, what's your all-time favorite game?",
         "Quick break to say hi, back to work now!",
         "Sending positive vibes to the chat!",
-        "Just caught the stream – what did I miss?",
+        "Just caught the stream ï¿½ what did I miss?",
         "Love the details !",
         "Secret message from progammer who wrote this",
         "I am very tired, but need to program this game",
@@ -86,7 +86,7 @@ public class ChatController : MonoBehaviour
         (new List<string> {"Aren't you thirsty?", "Don't forget to hydrate!", "Remember to drink some water!"}, 1),
         (new List<string> {"Can you turn the volume up?", "Turn the music up!"}, 1),
         (new List<string> {"Can you turn the volume down?", "Could you lower the volume?"}, 1),
-        (new List<string> {"This song is bad, give us another one", "Not feeling it—new song, please.", "This song? Nah. Another one?", "Not vibing with this. New one?"}, 1),
+        (new List<string> {"This song is bad, give us another one", "Not feeling itï¿½new song, please.", "This song? Nah. Another one?", "Not vibing with this. New one?"}, 1),
         (new List<string> {"Can you play that last song again?", "Could you give us that last song again?", "Replay the last track, if you can."}, 1),
         (new List<string> {"Can you start the song from the beginning?", "Give us that song from the start!", "Play it from the beginning again!"}, 1),
         (new List<string> {"That flower looks sad, give it some water!", "Notice the sad flower? Time to hydrate it!", "Spotting a sad flower; show it some water care!"}, 1),
@@ -182,7 +182,7 @@ public class ChatController : MonoBehaviour
             // donations handling
             if (nextDonationIn == 0)
             {
-                donated = Random.Range(30, 51);
+                donated = Random.Range(5, 30);
                 DonationsCount.AddDonation(donated);
                 donationObject.GetComponent<DonationController>().StartC("Donation: You have received $" + donated + " for listening to fans!");
                 donationIndex = 0;

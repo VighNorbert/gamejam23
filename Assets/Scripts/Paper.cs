@@ -58,6 +58,10 @@ public class Paper : MonoBehaviour
             }
             if (word.Contains("<b>") || isBold)
             {
+                if (isColored)
+                {
+                    correctWords[i] = "</color>" + word;
+                }
                 isBold = true;
                 decoloredNow = false;
                 continue;
@@ -84,6 +88,10 @@ public class Paper : MonoBehaviour
         }
         
         correctPaperText = String.Join(' ', correctWords);
+        if (correctPaperText.EndsWith("</color>"))
+        {
+            correctPaperText = correctPaperText.Substring(0, correctPaperText.Length - 8);
+        }
 
         string templateCorrect = correctPaperText;
         foreach (Pen pen in gm.pens)
