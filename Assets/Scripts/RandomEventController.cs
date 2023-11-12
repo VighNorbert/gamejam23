@@ -12,7 +12,7 @@ public class RandomEventController : MonoBehaviour
     public bool setOff = false;
 
     private Image image;
-    public float fadeDuration = 1f;
+    public float fadeDuration = 3f;
 
     public static RandomEventController instance;
     // Start is called before the first frame update
@@ -67,7 +67,7 @@ public class RandomEventController : MonoBehaviour
                 yield return FadeImage(1f, 0f);
 
             }
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(20f);
         }
         setOff = false;
     }

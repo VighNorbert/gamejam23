@@ -222,7 +222,7 @@ public class ChatController : MonoBehaviour
                 // if its time to trigger random event, generate it
                 if (nextRandomEventIn == 0)
                 {
-                    currentRandomEvent = Random.Range(0, 2);
+                    currentRandomEvent = Random.Range(4, 7);
                     nextRandomEventIn = Random.Range(minNextRandomEvent, maxNextRandomEvent); 
                 }
                 else
@@ -231,13 +231,13 @@ public class ChatController : MonoBehaviour
                 }
             }
 
-            if (ViewersCount.viewersCount > 200)
+            if (ViewersCount.viewersCount > 1000)
             {
-                random = Random.Range(1.0f, 1.5f); // next message time
+                random = Random.Range(3.5f, 10.0f); // next message time
             }
             else
             {
-                random = Random.Range(1.0f, 2.5f); // next message time   
+                random = Random.Range(4.0f, 10.0f); // next message time   
             }
             yield return new WaitForSeconds(random);
         }
