@@ -4847,8 +4847,8 @@ MonoBehaviour:
   wordsContainer: {fileID: 1721097438434676836}
   _words: []
   correctPaperText: In the heart of the ancient <br>kingdom of Eldoria, there <br>lay
-    <b><color=#000000>a mystical and</color><b> <br>enchanting forest <br>known as
-    the <br>"Whispering Woods." <br>This forest was unlike <br>any other in <b><color=#000000>the
+    <b><color=#000000>a mystical and</color></b> <br>enchanting forest <br>known
+    as the <br>"Whispering Woods." <br>This forest was unlike <br>any other in <b><color=#000000>the
     realm.</color></b> <br>Legend had it that the <br>Whispering Woods were <br>home
     <b><color=#000000>to magical</color></b> <br>creatures and hidden <br>treasures
     waiting to be <br>discovered.
