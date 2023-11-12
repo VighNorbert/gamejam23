@@ -54,7 +54,6 @@ public class RandomEventController : MonoBehaviour
 
     IEnumerator FadeInOut()
     {
-        Debug.Log(setOff);
         while (!setOff)
         {
             // Fade Out

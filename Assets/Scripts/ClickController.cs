@@ -22,8 +22,6 @@ public class ClickController : MonoBehaviour
     }
     void Update()
     {
-        //Debug.Log(ChatController.instance.currentRandomEvent + " T " + ChatController.instance.currentSideTask);
-
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -33,7 +31,6 @@ public class ClickController : MonoBehaviour
             {
                 if (hit.collider != null)
                 {
-                    Debug.Log("Clicked on: " + hit.collider.gameObject.name);
                     if (hit.collider.gameObject.name == "Lamp")
                     {
                         light.SetActive(!light.active);

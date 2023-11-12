@@ -28,6 +28,8 @@ public class Paper : MonoBehaviour
     private bool lastWasBr = false;
 
     private int combo = 1;
+
+    private bool textComplete = false;
     
     void Start()
     {
@@ -89,7 +91,7 @@ public class Paper : MonoBehaviour
         }
         paperTextTMP.text = templateCorrect;
         
-        MoveHand();
+        // MoveHand();
     }
 
     void Update()
@@ -109,10 +111,10 @@ public class Paper : MonoBehaviour
             }
         }
 
-        string nextChar = GetNextChar();
-        
-        
         if (gm.isPenAvailable) {
+            string nextChar = GetNextChar();
+        
+        
             if (nextChar == " " && Input.GetKeyDown("space"))
             {
                 // add letter
@@ -170,7 +172,6 @@ public class Paper : MonoBehaviour
                     if (Input.GetKeyDown(key))
                     {
                         // bad character
-                        Debug.Log("bad char");
                         combo = 1;
                         break; // Exit the loop after the first match
                     }
@@ -187,6 +188,15 @@ public class Paper : MonoBehaviour
 
     string GetNextChar()
     {
+        if (writtenProgress >= correctPaperText.Length)
+        {
+            if (!textComplete)
+            {
+                textComplete = true;
+                gm.SelectNextPaper();
+            }
+            return " ";
+        }
         if (correctPaperText[writtenProgress] == '<')
         {
             if (correctPaperText.Substring(writtenProgress, 4) == "<br>")
@@ -236,6 +246,15 @@ public class Paper : MonoBehaviour
                 writtenProgress += 8;
             }
         }
+        if (writtenProgress >= correctPaperText.Length)
+        {
+            if (!textComplete)
+            {
+                textComplete = true;
+                gm.SelectNextPaper();
+            }
+            return " ";
+        }
 
         return correctPaperText[writtenProgress].ToString();
     }
@@ -246,6 +265,7 @@ public class Paper : MonoBehaviour
         if (textInfo.characterCount == 0)
         {
             gm.handAnimator.SetTrigger("EndWriting");
+            Debug.Log("Pen available");
             gm.isPenAvailable = true;
             return;
         }
