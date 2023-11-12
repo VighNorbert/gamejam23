@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17300113, g: 0.21621299, b: 0.29819947, a: 1}
+  m_IndirectSpecularColor: {r: 0.17300135, g: 0.2162133, b: 0.29820007, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4623,15 +4623,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1914314710}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.36, y: -0.544, z: 10.68}
+  m_LocalRotation: {x: -0, y: 0.9920686, z: -0, w: 0.12569821}
+  m_LocalPosition: {x: 3.8733582, y: -0.54400015, z: -11.380048}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1672347807}
   m_Father: {fileID: 0}
   m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 165.558, z: 0}
 --- !u!1001 &1955478559
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4717,7 +4717,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   views: 0
   availablePapers:
+  - {fileID: 1302755324165455344, guid: 850b2a829a801c24eb6a414096f1a023, type: 3}
+  - {fileID: 1302755324165455344, guid: b9c9242011a8b474084567b5a64f3fc2, type: 3}
+  - {fileID: 3657386456292019076, guid: c6ce68419393d3b4890fc21ba9919a2b, type: 3}
   - {fileID: 768531651233227001, guid: bb262ccc684044d4c8150c781ac80c5a, type: 3}
+  - {fileID: 1302755324165455344, guid: 8fa896e15d9be75439575dac13dfaa08, type: 3}
   currentPaper: {fileID: 0}
   currentPaperIndex: 0
   chatController: {fileID: 0}
@@ -4730,11 +4734,12 @@ MonoBehaviour:
   - {fileID: 4425088348064104775}
   nextPen: {fileID: 0}
   selectedPen: {fileID: 0}
-  isPenAvailable: 1
+  isPenAvailable: 0
   hand: {fileID: 121632705}
   originalHandPosition: {x: 0, y: 0, z: 0}
   handAnimator: {fileID: 0}
   vc: {fileID: 0}
+  paperIndex: 0
 --- !u!4 &2014743334 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1326033663896849707, guid: 2f849f94d4aba554ab6c87098f622ec6, type: 3}
